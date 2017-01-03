@@ -12,4 +12,14 @@ function roller(rollTime) {
 	}, rollTime)
 }
 
-roller(30);
+function roll() {
+	x = 0;
+	roller(30);
+}
+
+function updateValue() {
+	var nameOf = document.getElementById("spacedock").value;
+	console.log(nameOf);
+	if (nameOf == 0) {
+	}
+}

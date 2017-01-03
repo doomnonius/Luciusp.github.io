@@ -2,14 +2,16 @@
 
 }
 .icon {
-	height:42px;
-	width:42px;
+	height:62px;
+	width:62px;
 }
 
 .picklist {
-
+	width: 400px;
+	font-size: 200px;
 }
 
-.heh {
+.diceRoll {
 	display:inline;
+	margin-left: 50px;
 }
