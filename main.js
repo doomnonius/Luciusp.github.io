@@ -1,5 +1,8 @@
-var test = "Wassup, Bentleigh!";
 var unitArr = ["gf","pds","spacedock","fighter","destroyer","carrier","cruiser","dreadnaught","warsun"];
+var tiUnit = function(unitName) {console.log("Initiated Unit");};
+
+var spacedock = new tiUnit(); //read this please: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
+
 var x = 0;
 
 function roller(rollTime) {
