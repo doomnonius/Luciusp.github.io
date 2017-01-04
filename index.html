@@ -5,15 +5,58 @@
 		<script src = "main.js"></script>
 		<title>TI3 War Roller</title>
 		<body>
-			<img class = "icon" id = "spacedock_img" src = "http://res.cloudinary.com/luciusp/image/upload/v1483378192/spacedock_qoxejy.png"/ alt = "spacedock">
+			<img class = "icon" id = "img" src = "http://res.cloudinary.com/luciusp/image/upload/v1483378192/spacedock_qoxejy.png"/ alt = "spacedock">
 			<select class = picklist id = "spacedock" onchange="updateValue();">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
 				<option>3</option>
 			</select>
-			<p class = "diceRoll" id='tester'></p>
+
+			<p class = "diceRoll" id='spacedock_roll0'> </p>
+			<p class = "diceRoll" id='spacedock_roll1'> </p>
+			<p class = "diceRoll" id='spacedock_roll2'> </p>
+
+			<img class = "icon" id = "img_right" src = "https://res.cloudinary.com/luciusp/image/upload/v1483378192/Units/pds_mbkf73.png"/ alt = "pds">
+			<select class = picklist id = "pds" onchange="updateValue();">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+
+			<p class = "diceRoll" id='pds_roll0'> </p>
+			<p class = "diceRoll" id='pds_roll1'> </p>
+			<p class = "diceRoll" id='pds_roll2'> </p>
+
 			<br></br>
+
+			<img class = "icon" id = "img" src = "https://res.cloudinary.com/luciusp/image/upload/v1483378190/Units/gf_vwdulh.png"/ alt = "groundforces">
+			<select class = picklist id = "groundforces" onchange="updateValue();">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+
+			<p class = "diceRoll" id='groundforces_roll0'> </p>
+			<p class = "diceRoll" id='groundforces_roll1'> </p>
+			<p class = "diceRoll" id='groundforces_roll2'> </p>
+
+			<img class = "icon" id = "img_right" src = "https://res.cloudinary.com/luciusp/image/upload/v1483378191/Units/fighter_a3hnqa.png"/ alt = "fighter">
+			<select class = picklist id = "fighter" onchange="updateValue();">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+
+			<p class = "diceRoll" id='fighter_roll0'> </p>
+			<p class = "diceRoll" id='fighter_roll1'> </p>
+			<p class = "diceRoll" id='fighter_roll2'> </p>
+			<br></br>
+
+			
 			<button type="button" onclick = "roll()">Roll!</button>
 
 		</body>
