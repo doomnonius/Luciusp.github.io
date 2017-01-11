@@ -15,7 +15,7 @@ var unitList = createUnits(numUnits); //instantiates all unit objects
 var x = 0;
 function roller(rollTime) { //rolls number from 0-9 with a delay to make clear it's a new roll; remember that 0=10, let's keep it like that to reflect what a d10 looks like
 	setTimeout(function() {var output = Math.floor(Math.random() * 10) + 0;
-	document.getElementById("spacedock_roll0").innerHTML = output; //spacedocks don't participate in combat so why even have them?
+	document.getElementById("spacedock_roll0").innerHTML = output;
 	x++;
 		if(x<100) {
 			roller();
