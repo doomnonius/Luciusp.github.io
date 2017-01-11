@@ -6,7 +6,7 @@
 		<title>TI3 War Roller</title>
 		<body>
 			<!--class selection-->
-			<select class="pickrace" id="race" onchange="updateValue();">
+			<select class="pickrace" id="race">
 			  <option>Barony of Letnev</option>
 			  <option>Emirates of Hacan</option>
 			  <option>Federation of Sol</option>
@@ -26,7 +26,7 @@
 			
 			<!--spacedock-->
 			<img class="icon" id="img" src="img/spacedock.PNG" alt="spacedock"/>
-			<select class="picklist" id="spacedock" onchange="updateValue();">
+			<select class="picklist" id="spacedock">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -36,13 +36,12 @@
       <p class="diceRoll" id='spacedock_roll0'> </p>
 			<p class="diceRoll" id='spacedock_roll1'> </p>
 			<p class="diceRoll" id='spacedock_roll2'> </p>
-			<p class="diceRoll" id='spacedock_roll3'> </p>
 			
 			<br></br>
 			
       <!--pds-->
 			<img class="icon" id="img" src="img/pds.PNG" alt="pds"/>
-			<select class="picklist" id="pds" onchange="updateValue();">
+			<select class="picklist" id="pds">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -59,34 +58,63 @@
 			<p class="diceRoll" id='pds_roll3'> </p>
 			<p class="diceRoll" id='pds_roll4'> </p>
 			<p class="diceRoll" id='pds_roll5'> </p>
-			<p class="diceRoll" id='pds_roll6'> </p>
 
 			<br></br>
 
 			<!--groundforce-->
 			<img class="icon" id="img" src="img/gf.PNG" alt="groundforce"/>
-			<input class="picklist" type="number" name="groundforcenumber"/>
+			<input class="picklist" type="number" id="groundforce"/>
 			
-			<p class="diceRoll" id='groundforces_roll0'> </p>
-			<p class="diceRoll" id='groundforces_roll1'> </p>
-			<p class="diceRoll" id='groundforces_roll2'> </p>
+			<p class="diceRoll" id='groundforce_roll0'> </p>
+			<p class="diceRoll" id='groundforce_roll1'> </p>
+			<p class="diceRoll" id='groundforce_roll2'> </p>
+			<p class="diceRoll" id='groundforce_roll3'> </p>
+			<p class="diceRoll" id='groundforce_roll4'> </p>
+			<p class="diceRoll" id='groundforce_roll5'> </p>
+			<p class="diceRoll" id='groundforce_roll6'> </p>
+			<p class="diceRoll" id='groundforce_roll7'> </p>
+			<p class="diceRoll" id='groundforce_roll8'> </p>
+			<p class="diceRoll" id='groundforce_roll9'> </p>
+			<p class="diceRoll" id='groundforce_roll10'> </p>
+			<p class="diceRoll" id='groundforce_roll11'> </p>
 			
 			<br></br>
 
 			<!--fighter-->
 			<img class="icon" id="img" src="img/fighter.PNG" alt="fighter"/>
-			<input class="picklist" type="number" name="fighternumber"/>
+			<input class="picklist" type="number" id="fighter"/>
 
 			<!--there has to be a way to make this iterative-->
 			<p class="diceRoll" id='fighter_roll0'> </p>
 			<p class="diceRoll" id='fighter_roll1'> </p>
 			<p class="diceRoll" id='fighter_roll2'> </p>
+			<p class="diceRoll" id='fighter_roll3'> </p>
+			<p class="diceRoll" id='fighter_roll4'> </p>
+			<p class="diceRoll" id='fighter_roll5'> </p>
+			<p class="diceRoll" id='fighter_roll6'> </p>
+			<p class="diceRoll" id='fighter_roll7'> </p>
+			<p class="diceRoll" id='fighter_roll8'> </p>
+			<p class="diceRoll" id='fighter_roll9'> </p>
+			<p class="diceRoll" id='fighter_roll10'> </p>
+			<p class="diceRoll" id='fighter_roll11'> </p>
+			<p class="diceRoll" id='fighter_roll12'> </p>
+			<p class="diceRoll" id='fighter_roll13'> </p>
+			<p class="diceRoll" id='fighter_roll14'> </p>
+			<p class="diceRoll" id='fighter_roll15'> </p>
+			<p class="diceRoll" id='fighter_roll16'> </p>
+			<p class="diceRoll" id='fighter_roll17'> </p>
+			<p class="diceRoll" id='fighter_roll18'> </p>
+			<p class="diceRoll" id='fighter_roll19'> </p>
+			<p class="diceRoll" id='fighter_roll20'> </p>
+			<p class="diceRoll" id='fighter_roll21'> </p>
+			<p class="diceRoll" id='fighter_roll22'> </p>
+			<p class="diceRoll" id='fighter_roll23'> </p>
 			
 			<br></br>
 
 			<!--carrier-->
 			<img class="icon" id="img" src="img/carrier.PNG" alt="carrier"/>
-			<select class="picklist" id="carrier" onchange="updateValue();">
+			<select class="picklist" id="carrier">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -98,13 +126,12 @@
 			<p class="diceRoll" id='carrier_roll1'> </p>
 			<p class="diceRoll" id='carrier_roll2'> </p>
 			<p class="diceRoll" id='carrier_roll3'> </p>
-			<p class="diceRoll" id='carrier_roll4'> </p>
-			
+						
 			<br></br>
 			
 			<!--cruiser-->
 			<img class="icon" id="img" src="img/cruiser.PNG" alt="cruiser"/>
-			<select class="picklist" id = "cruiser" onchange="updateValue();">
+			<select class="picklist" id = "cruiser">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -125,13 +152,12 @@
 			<p class="diceRoll" id='cruiser_roll5'> </p>
 			<p class="diceRoll" id='cruiser_roll6'> </p>
 			<p class="diceRoll" id='cruiser_roll7'> </p>
-			<p class="diceRoll" id='cruiser_roll8'> </p>
 			
 			<br></br>
 			
 			<!--destroyer-->
 			<img class="icon" id="img" src="img/destroyer.PNG" alt="destroyer"/>
-			<select class="picklist" id="destroyer" onchange="updateValue();">
+			<select class="picklist" id="destroyer">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -151,13 +177,12 @@
 			<p class="diceRoll" id='destroyer_roll5'> </p>
 			<p class="diceRoll" id='destroyer_roll6'> </p>
 			<p class="diceRoll" id='destroyer_roll7'> </p>
-			<p class="diceRoll" id='destroyer_roll8'> </p>
 			
 			<br></br>
 			
-			<!--dreadnaught-->
-			<img class="icon" id="img" src="img/dreadnaught.PNG" alt="dreadnaught"/>
-			<select class="picklist" id="dreadnaught" onchange="updateValue();">
+			<!--dreadnought-->
+			<img class="icon" id="img" src="img/dreadnaught.PNG" alt="dreadnought"/>
+			<select class="picklist" id="dreadnought">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -167,18 +192,17 @@
 			</select>
 
 			<!--figure out how to iterate-->
-			<p class="diceRoll" id='dreadnaught_roll0'> </p>
-			<p class="diceRoll" id='dreadnaught_roll1'> </p>
-			<p class="diceRoll" id='dreadnaught_roll2'> </p>
-			<p class="diceRoll" id='dreadnaught_roll3'> </p>
-			<p class="diceRoll" id='dreadnaught_roll4'> </p>
-			<p class="diceRoll" id='dreadnaught_roll5'> </p>
+			<p class="diceRoll" id='dreadnought_roll0'> </p>
+			<p class="diceRoll" id='dreadnought_roll1'> </p>
+			<p class="diceRoll" id='dreadnought_roll2'> </p>
+			<p class="diceRoll" id='dreadnought_roll3'> </p>
+			<p class="diceRoll" id='dreadnought_roll4'> </p>
 			
 			<br></br>
 			
 			<!--warsun-->
 			<img class="icon" id="img" src="img/warsun.PNG" alt="warsun"/>
-			<select class="picklist" id="warsun" onchange="updateValue();">
+			<select class="picklist" id="warsun">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -187,6 +211,10 @@
 			<p class="diceRoll" id='warsun_roll0'> </p>
 			<p class="diceRoll" id='warsun_roll1'> </p>
 			<p class="diceRoll" id='warsun_roll2'> </p>
+			<p class="diceRoll" id='warsun_roll3'> </p>
+			<p class="diceRoll" id='warsun_roll4'> </p>
+			<p class="diceRoll" id='warsun_roll5'> </p>
+			<p class="diceRoll" id='warsun_roll6'> </p>
 			
 			<br></br>
 			
