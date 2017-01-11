@@ -7,9 +7,15 @@
 }
 
 .picklist {
-	/*width: 90px;*/
+	width: 90px;
 	font-size: 50px;
 	margin-left: 10px;
+}
+
+.pickrace {
+	width: 220px;
+	font-size: 20px;
+	margin-left:10px;
 }
 
 .diceRoll {

@@ -1,4 +1,5 @@
-var unitNameArr = [["groundforce",8],["pds",6],["spacedock",6],["fighter",9],["destroyer",9],["carrier",9],["cruiser",7],["dreadnought",5],["warsun",3]];
+var unitNameArr = [["spacedock",6,1],["pds",6,1],["groundforce",8,1],["fighter",9,1],["carrier",9,1],["cruiser",7,1],["destroyer",9,1],["dreadnought",5,1],["warsun",3,1]]; //unit, hit, attacks; order of units is matched to order in webapp
+//to add here: first, a switch statement for how each race affects the results based on a selection list in the html file (actually, two lists because some races can penalize their opponents rolls); second, we'll need some way to mark upgrades and action cards and political cards and etc. that can influence battles, and there will be another function here that correctly applies how each one affects the rolls
 var numUnits = unitNameArr.length-1;
 var tiUnit = function(unitName,rollVal) { //unit object
 	this.name = unitName;
@@ -12,9 +13,9 @@ var unitList = createUnits(numUnits); //instantiates all unit objects
 /*----------------------------------*/
 
 var x = 0;
-function roller(rollTime) { //rolls number from 0-9 with a delay to make clear it's a new roll
+function roller(rollTime) { //rolls number from 0-9 with a delay to make clear it's a new roll; remember that 0=10, let's keep it like that to reflect what a d10 looks like
 	setTimeout(function() {var output = Math.floor(Math.random() * 10) + 0;
-	document.getElementById("spacedock_roll0").innerHTML = output;
+	document.getElementById("spacedock_roll0").innerHTML = output; //spacedocks don't participate in combat so why even have them?
 	x++;
 		if(x<100) {
 			roller();

@@ -1,64 +1,158 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel = "stylesheet" type = "text/css" href = "style.css">
-		<script src = "main.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="main.js"></script>
 		<title>TI3 War Roller</title>
 		<body>
-			<img class = "icon" id = "img" src = "http://res.cloudinary.com/luciusp/image/upload/v1483378192/spacedock_qoxejy.png"/ alt = "spacedock">
-			<select class = picklist id = "spacedock" onchange="updateValue();">
+			<!--class selection-->
+			<select class=pickrace id="race" onchange="updateValue();">
+			  <option>Barony of Letnev</option>
+			  <option>Emirates of Hacan</option>
+			  <option>Federation of Sol</option>
+			  <option>L1Z1X Mindnet</option>
+			  <option>Mentak Coalition</option>
+			  <option>Naalu Collective</option>
+			  <option>Sardakk N'orr</option>
+			  <option>Universities of Jol-Nar</option>
+			  <option>Xxcha Kingdom</option>
+			  <option>Yssaril Tribes</option>
+			  <option>(X) Clan of Saar</option>
+			  <option>(X) Ember of Muatt</option>
+			  <option>(X) Winnu</option>
+			  <option>(X) Yin Brotherhood</option>
+			</select>
+			<br></br>
+			
+			<!--spacedock-->
+			<img class="icon" id="img" src="img/spacedock.PNG"/ alt="spacedock">
+			<select class=picklist id="spacedock" onchange="updateValue();">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
 				<option>3</option>
 			</select>
 
-			<p class = "diceRoll" id='spacedock_roll0'> </p>
-			<p class = "diceRoll" id='spacedock_roll1'> </p>
-			<p class = "diceRoll" id='spacedock_roll2'> </p>
-
-			<img class = "icon" id = "img_right" src = "https://res.cloudinary.com/luciusp/image/upload/v1483378192/Units/pds_mbkf73.png"/ alt = "pds">
-			<select class = picklist id = "pds" onchange="updateValue();">
+      <!--pds-->
+			<img class="icon" id="img_right" src="img/pds.PNG"/ alt="pds">
+			<select class=picklist id="pds" onchange="updateValue();">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
 				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
 			</select>
-
-			<p class = "diceRoll" id='pds_roll0'> </p>
-			<p class = "diceRoll" id='pds_roll1'> </p>
-			<p class = "diceRoll" id='pds_roll2'> </p>
+      
+      <!--there has to be a way to make this iterative-->
+			<p class="diceRoll" id='pds_roll0'> </p>
+			<p class="diceRoll" id='pds_roll1'> </p>
+			<p class="diceRoll" id='pds_roll2'> </p>
 
 			<br></br>
 
-			<img class = "icon" id = "img" src = "https://res.cloudinary.com/luciusp/image/upload/v1483378190/Units/gf_vwdulh.png"/ alt = "groundforces">
-			<select class = picklist id = "groundforces" onchange="updateValue();">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-			</select>
+			<!--groundforce-->
+			<img class="icon" id="img" src="img/gf.PNG"/ alt="groundforce">
+			<input class=picklist type="number" name="groundforcenumber"/>
 
-			<p class = "diceRoll" id='groundforces_roll0'> </p>
-			<p class = "diceRoll" id='groundforces_roll1'> </p>
-			<p class = "diceRoll" id='groundforces_roll2'> </p>
+			<p class="diceRoll" id='groundforces_roll0'> </p>
+			<p class="diceRoll" id='groundforces_roll1'> </p>
+			<p class="diceRoll" id='groundforces_roll2'> </p>
 
-			<img class = "icon" id = "img_right" src = "https://res.cloudinary.com/luciusp/image/upload/v1483378191/Units/fighter_a3hnqa.png"/ alt = "fighter">
-			<select class = picklist id = "fighter" onchange="updateValue();">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-			</select>
+			<!--fighter-->
+			<img class="icon" id="img_right" src="img/fighter.PNG"/ alt="fighter">
+			<input class=picklist type="number" name="fighternumber"/>
 
 			<p class = "diceRoll" id='fighter_roll0'> </p>
 			<p class = "diceRoll" id='fighter_roll1'> </p>
 			<p class = "diceRoll" id='fighter_roll2'> </p>
 			<br></br>
 
+			<!--carrier-->
+			<img class = "icon" id = "img" src = "img/carrier.PNG"/ alt = "carrier">
+			<select class = picklist id = "carrier" onchange="updateValue();">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+
+			<p class = "diceRoll" id='carrier_roll0'> </p>
+			<p class = "diceRoll" id='carrier_roll1'> </p>
+			<p class = "diceRoll" id='carrier_roll2'> </p>
+			
+			<!--cruiser-->
+			<img class = "icon" id = "img_right" src = "img/cruiser.PNG"/ alt = "cruiser">
+			<select class = picklist id = "cruiser" onchange="updateValue();">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+
+			<p class = "diceRoll" id='cruiser_roll0'> </p>
+			<p class = "diceRoll" id='cruiser_roll1'> </p>
+			<p class = "diceRoll" id='cruiser_roll2'> </p>
+			<br></br>
+			
+			<!--destroyer-->
+			<img class = "icon" id = "img" src = "img/destroyer.PNG"/ alt = "destroyer">
+			<select class = picklist id = "destroyer" onchange="updateValue();">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+
+			<p class = "diceRoll" id='destroyer_roll0'> </p>
+			<p class = "diceRoll" id='destroyer_roll1'> </p>
+			<p class = "diceRoll" id='destroyer_roll2'> </p>
+			
+			<!--dreadnaught-->
+			<img class = "icon" id = "img_right" src = "img/dreadnaught.PNG"/ alt = "dreadnaught">
+			<select class = picklist id = "dreadnaught" onchange="updateValue();">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+
+			<p class = "diceRoll" id='dreadnaught_roll0'> </p>
+			<p class = "diceRoll" id='dreadnaught_roll1'> </p>
+			<p class = "diceRoll" id='dreadnaught_roll2'> </p>
+			<br></br>
+			
+			<!--warsun-->
+			<img class = "icon" id = "img" src = "img/warsun.PNG"/ alt = "warsun">
+			<select class = picklist id = "warsun" onchange="updateValue();">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+
+			<p class = "diceRoll" id='warsun_roll0'> </p>
+			<p class = "diceRoll" id='warsun_roll1'> </p>
+			<p class = "diceRoll" id='warsun_roll2'> </p>
+			<br></br>
 			
 			<button type="button" onclick = "roll()">Roll!</button>
-
+      <br></br>
+      
+      <!--links to rules .pdf (both original and rewritten)-->
+      <a href="img/ti3rules.pdf">Original Rules</a> <br></br>
+      <a href="img/ti3rules.pdf">Eventually will be rewritten rules</a>
 		</body>
 	</head>
 </html>
