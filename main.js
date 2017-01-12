@@ -19,8 +19,8 @@ function roller(rollTime) { //rolls number from 0-9 with a delay to make clear i
     for (a = 0; a < 9; a++) {
       if (unitNameArr[a][4]> 0) {
 	      console.log(unitNameArr[a][4]);
-	      console.log(unitNameArr[a][0] + "_roll" + (unitNameArr[a][4]-1).toString());
-	      document.getElementById(unitNameArr[a][0] + "_roll" + (unitNameArr[a][4]-1).toString()).innerHTML = output;
+	      console.log(unitNameArr[a][0] + "_roll" + (unitNameArr[a][4]).toString());
+	      document.getElementById(unitNameArr[a][0] + "_roll" + (unitNameArr[a][4]).toString()).innerHTML = output;
 	        for (i = 0; i < 100; i++) {
 	          roller();
           }
