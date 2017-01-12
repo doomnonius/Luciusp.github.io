@@ -7,9 +7,13 @@
 }
 
 .picklist {
-	width: 50px;
+	width: 65px;
 	font-size: 45px;
 	margin-left: 10px;
+}
+
+.datalist {
+  display: none;
 }
 
 .pickrace {
@@ -20,8 +24,9 @@
 
 .diceRoll {
 	display:inline;
-	margin-left: 10px;
+	margin-left: 20px;
 	font-size: 30px;
+	margin-bottom: 10px;
 }
 
 #img_right {

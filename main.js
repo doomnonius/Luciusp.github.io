@@ -1,14 +1,14 @@
-var unitNameArr = [["spacedock",6,1],["pds",6,1],["groundforce",8,1],["fighter",9,1],["carrier",9,1],["cruiser",7,1],["destroyer",9,1],["dreadnought",5,1],["warsun",3,3]]; //unit, hit, multiplier, number, attacks; order of units is matched to order in webapp
+var unitNameArr = [{name:"spacedock",hitsAt:6,numShots:1},{name:"pds",hitsAt:6,numShots:1},{name:"groundforce",hitsAt:8,numShots:1},{name:"fighter",hitsAt:9,numShots:1},{name:"carrier",hitsAt:9,numShots:1},{name:"cruiser",hitsAt:7,numShots:1},{name:"destroyer",hitsAt:9,numShots:1},{name:"dreadnought",hitsAt:5,numShots:1},{name:"warsun",hitsAt:3,numShots:3}];
 //to add here: first, a switch statement for how each race affects the results based on a selection list in the html file (actually, two lists because some races can penalize their opponents rolls); second, we'll need some way to mark upgrades and action cards and political cards and etc. that can influence battles, and there will be another function here that correctly applies how each one affects the rolls
 function updateValue() {
 	for (var i = 0; i < 9; i++) {
-	unitNameArr[i][3] = document.getElementById(unitNameArr[i][0]).value;
-	  if (unitNameArr[i][3] > 0) {
-	    console.log("Instantiated " + unitNameArr[i][3] + " " + unitNameArr[i][0] + "s"); //instantiates all unit objects
+	unitNameArr[i].numUnits = document.getElementById(unitNameArr[i].name).value;
+	  if (unitNameArr[i].numUnits > 0) {
+	    console.log("Instantiated " + unitNameArr[i].numUnits + " " + unitNameArr[i].name + "s"); //instantiates all unit objects
 	    for (a = 0; a < 9; a++) {
-        unitNameArr[a][4] = (unitNameArr[a][3]) * (unitNameArr[a][2]);
+        unitNameArr[a].allShots = (unitNameArr[a].numShots) * (unitNameArr[a].numUnits);
       }
-	  }
+	  } //else (build some sort of thing here that makes all the unused units disappear)
 	}
 }
 
@@ -17,14 +17,14 @@ function roller(rollTime) { //rolls number from 0-9 with a delay to make clear i
   setTimeout(function() {
 	  var output = Math.floor(Math.random() * 10) + 0;
     for (a = 0; a < 9; a++) {
-      if (unitNameArr[a][4]> 0) {
-	      console.log(unitNameArr[a][4]);
-	      console.log(unitNameArr[a][0] + "_roll" + (unitNameArr[a][4]).toString());
-	      document.getElementById(unitNameArr[a][0] + "_roll" + (unitNameArr[a][4]).toString()).innerHTML = output;
+      if (unitNameArr[a].allShots> 0) {
+	      console.log(unitNameArr[a].allShots);
+	      console.log(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString());
+	      document.getElementById(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString()).innerHTML = output;
 	        for (i = 0; i < 100; i++) {
 	          roller();
           }
-   	      unitNameArr[a][4]--;
+   	      unitNameArr[a].allShots--;
       }
     }
   }, rollTime)
