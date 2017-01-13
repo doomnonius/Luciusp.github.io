@@ -15,16 +15,7 @@ function updateValue() {
 	}
 }
 
-/*function shots() {
-  for (var a = 0; a < 9; a++) {
-   if (allShots > 0) {
-      
-	    allShots=allShots-1;
-    }
-    console.log(document.getElementById(unitNameArr[a].name + "_div").childElementCount);
-  }
-}
-function checkBox() {
+/*function checkBox() {
   if (document.getElementById("checkbox").checked) {
     for (var a = 0; a < 9; a++) {
       unitNameArr[a].hitsAt--;
