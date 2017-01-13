@@ -15,25 +15,16 @@ function updateValue() {
 	}
 }
 
-function shots() {
+/*function shots() {
   for (var a = 0; a < 9; a++) {
    if (allShots > 0) {
-      console.log(document.getElementById(unitNameArr[a].name + "_div").childElementCount);
-      para = document.createElement("p");
-	    id = document.createAttribute("id");
-      id.value = (unitNameArr[a].name + "_roll" + allShots.toString());	      
-      sty = document.createAttribute("class");      
-	    sty.value = "diceRoll";
-	    para.setAttributeNode(sty);      
-	    para.setAttributeNode(id);
-	    div = document.getElementById(unitNameArr[a].name + "_div");
-	    div.appendChild(para);
+      
 	    allShots=allShots-1;
     }
     console.log(document.getElementById(unitNameArr[a].name + "_div").childElementCount);
   }
 }
-/*function checkBox() {
+function checkBox() {
   if (document.getElementById("checkbox").checked) {
     for (var a = 0; a < 9; a++) {
       unitNameArr[a].hitsAt--;
@@ -89,11 +80,21 @@ function updateRace() {
 /*----------------------------------*/
 function roller(rollTime) { //rolls number from 1-10 with a delay to make clear it's a new roll
   setTimeout(function() {
-	  var output = Math.floor(Math.random() * 10) + 0;
     for (a = 0; a < 9; a++) {
       if (unitNameArr[a].allShots> 0) {
+	      var output = Math.floor(Math.random() * 10) + 0;
 	      console.log(unitNameArr[a].allShots);
-	      console.log(document.getElementById(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString()));
+	      console.log(document.getElementById(unitNameArr[a].name + "_div").childElementCount);
+        para = document.createElement("p");
+  	    id = document.createAttribute("id");
+        id.value = (unitNameArr[a].name + "_roll" + unitNameArr[a].allShots.toString());	      
+        sty = document.createAttribute("class");      
+  	    sty.value = "diceRoll";
+  	    para.setAttributeNode(sty);
+  	    para.setAttributeNode(id);
+  	    div = document.getElementById(unitNameArr[a].name + "_div");
+  	    div.appendChild(para);
+  	    console.log(document.getElementById(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString()));
 	      document.getElementById(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString()).innerHTML = output;
 	        for (i = 0; i < 100; i++) {
 	          roller();
@@ -106,6 +107,5 @@ function roller(rollTime) { //rolls number from 1-10 with a delay to make clear 
 
 function roll() {
 	updateValue();
-	shots();
 	roller(30);
 }
