@@ -15,11 +15,13 @@ function updateValue() {
 	}
 }
 
-/*function checkBox() {
-  if (document.getElementById("checkbox").checked) {
-    for (var a = 0; a < 9; a++) {
-      unitNameArr[a].hitsAt--;
-      console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt)
+function checkBox() {
+  if (document.getElementById("checkbox_Letnev")) {
+    if (document.getElementById("checkbox_Letnev").checked) {
+      for (var a = 0; a < 9; a++) {
+        unitNameArr[a].hitsAt--;
+        console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt)
+      }
     }
   }
 }
@@ -33,18 +35,21 @@ function updateRace() {
 	      check = document.createElement("INPUT");
 	      check.setAttribute("type", "checkbox");
 	      check.setAttribute("onclick", "checkBox()");
-	      check.setAttribute("id", "checkbox");
+	      check.setAttribute("id", "checkbox_Letnev");
 	      check.setAttribute("class","checkbox");
 	      divSpace = document.getElementById("body");
 	      divSpace.insertBefore(check, divSpace.childNodes[4]);
 	      para.innerHTML = "I spend two trade goods to give my ships +1 or my groundforces +2.";
 	      divSpace.insertBefore(para, divSpace.childNodes[5]);
-	    case "Hacan":
+/*	    case "Hacan":
 	          
       case "Sol":
-	          
+	          */
 	    case "L1Z1X":
-	           
+	      unitNameArr[7].hitsAt--;
+	      console.log("Your " + unitNameArr[7].name + "s now hit at " + unitNameArr[7].hitsAt);
+	      //groundforces get +1 when attacking only; add another checkbox
+	      break;
 	    case "Mentak":
 	          
 	    case "Naalu":
@@ -57,18 +62,21 @@ function updateRace() {
 	          
 	    case "Yssaril":
 	          
-	    case "Saar":
+/*	    case "Saar":
 	          
 	    case "Muatt":
-	          
+	          */
 	    case "Winnu":
 	          
 	    case "Yin":
 	          
 	    default:
-	          
+	      var para = document.createElement("p");
+	      para.setAttribute("fontsize","20");
+	      para.innerHTML = "Your class does not give any combat modifiers.";
+	      body.insertBefore(para, body.childNodes[4]);
 	  }
-}*/
+}
 /*----------------------------------*/
 function roller(rollTime) { //rolls number from 1-10 with a delay to make clear it's a new roll
   setTimeout(function() {
@@ -94,6 +102,7 @@ function roller(rollTime) { //rolls number from 1-10 with a delay to make clear 
 }
 
 function roll() {
+	checkBox();
 	updateValue();
 	roller(30);
 }
