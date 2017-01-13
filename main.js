@@ -1,5 +1,5 @@
 var unitNameArr = [{name:"spacedock",hitsAt:9,numShots:1},{name:"pds",hitsAt:6,numShots:1},{name:"groundforce",hitsAt:8,numShots:1},{name:"fighter",hitsAt:9,numShots:1},{name:"carrier",hitsAt:9,numShots:1},{name:"cruiser",hitsAt:7,numShots:1},{name:"destroyer",hitsAt:9,numShots:1},{name:"dreadnought",hitsAt:5,numShots:1},{name:"warsun",hitsAt:3,numShots:3}];
-//to add: second, we'll need some way to mark upgrades and action cards and political cards and etc. that can influence battles, and there will be another function here that correctly applies how each one affects the rolls
+//to add: second, we'll need some way to mark upgrades and action cards and political cards and etc. that can influence battles, and there will be another function here that correctly applies how each one affects the rolls. I'm thinking of using checkboxes in a hidden menu.
 function updateValue() {
 	for (var a = 0; a < 9; a++) { //this for loop creates the keys numUnits and allShots and gives them values based on data from the .html for each object in unitNameArr
 	unitNameArr[a].numUnits = document.getElementById(unitNameArr[a].name).value;
