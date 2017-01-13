@@ -4,370 +4,93 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="main.js"></script>
 		<title>TI3 War Roller</title>
-		<body>
-			<!--class selection. look up making this into a <datalist>-->
-			<datalist class="datalist" id="races">
-			  <option id="Barony">Barony of Letnev</option>
-			  <option id="Emirates">Emirates of Hacan</option>
-			  <option id="Federation">Federation of Sol</option>
-			  <option id="L1Z1X">L1Z1X Mindnet</option>
-			  <option id="Mentak">Mentak Coalition</option>
-			  <option id="Naalu">Naalu Collectiv</option>
-			  <option id="Sardakk">Sardakk N'orr</option>
-			  <option id="Universities">Universities of Jol-Nar</option>
-			  <option id="Xxcha">Xxcha Kingdom</option>
-			  <option id="Yssaril">Yssaril Tribes</option>
-			  <option id="Clan">(X) Clan of Saar</option>
-			  <option id="Ember">(X) Ember of Muatt</option>
-			  <option id="Winnu">(X) Winnu</option>
-			  <option id="Yin">(X) Yin Brotherhood</option>
-			</datalist>
+		<body id="body">
+		  <!--class selection-->
+			<!--<div>
+			  <datalist hidden class="datalist" id="races">
+		  	  <option value="Letnev">Barony of Letnev</option>
+			    <option value="Hacan">Emirates of Hacan</option>
+			    <option value="Sol">Federation of Sol</option>
+			    <option value="L1Z1X">L1Z1X Mindnet</option>
+			    <option value="Mentak">Mentak Coalition</option>
+			    <option value="Naalu">Naalu Collectiv</option>
+			    <option value="Sardakk">Sardakk N'orr</option>
+			    <option value="Jol-Nar">Universities of Jol-Nar</option>
+			    <option value="Xxcha">Xxcha Kingdom</option>
+			    <option value="Yssaril">Yssaril Tribes</option>
+			    <option value="Saar">(X) Clan of Saar</option>
+			    <option value="Muatt">(X) Ember of Muatt</option>
+			    <option value="Winnu">(X) Winnu</option>
+			    <option value="Yin">(X) Yin Brotherhood</option>
+			  </datalist>
 			
-			<input class="pickrace" list="races">
-			
-			<br></br>
-			
+			  <p>Race:<input class="pickrace" id="race" list="races"><button onclick="updateRace()">Update</input></p>
+
+			</div>-->
+					
 			<!--spacedock-->
-			<img class="icon" id="spacedock_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/spacedock_qoxejy.png" alt="spacedock"/>
-			<input class="picklist" type="number" id="spacedock" max="3" min="0"/>
-
-			<p class="diceRoll" id='spacedock_roll1'> </p>
-			<p class="diceRoll" id='spacedock_roll2'> </p>
-			<p class="diceRoll" id='spacedock_roll3'> </p>
-			<p class="diceRoll" id='spacedock_roll4'> </p>
-			<p class="diceRoll" id='spacedock_roll5'> </p>
-			<p class="diceRoll" id='spacedock_roll6'> </p>
-			<p class="diceRoll" id='spacedock_roll7'> </p>
-			<p class="diceRoll" id='spacedock_roll8'> </p>
-			<p class="diceRoll" id='spacedock_roll9'> </p>
-			<p class="diceRoll" id='spacedock_roll10'> </p>
-			<p class="diceRoll" id='spacedock_roll11'> </p>
-			<p class="diceRoll" id='spacedock_roll12'> </p>
-			<p class="diceRoll" id='spacedock_roll13'> </p>
-			<p class="diceRoll" id='spacedock_roll14'> </p>
-			<p class="diceRoll" id='spacedock_roll15'> </p>
-			<p class="diceRoll" id='spacedock_roll16'> </p>
-			<p class="diceRoll" id='spacedock_roll17'> </p>
-			<p class="diceRoll" id='spacedock_roll18'> </p>
-			<p class="diceRoll" id='spacedock_roll19'> </p>
-			<p class="diceRoll" id='spacedock_roll20'> </p>
-			<p class="diceRoll" id='spacedock_roll21'> </p>
-			<p class="diceRoll" id='spacedock_roll22'> </p>
-			<p class="diceRoll" id='spacedock_roll23'> </p>
-			<p class="diceRoll" id='spacedock_roll24'> </p>
-			<p class="diceRoll" id='spacedock_roll25'> </p>
-			<p class="diceRoll" id='spacedock_roll26'> </p>
-			<p class="diceRoll" id='spacedock_roll27'> </p>
-			<p class="diceRoll" id='spacedock_roll28'> </p>
-			<p class="diceRoll" id='spacedock_roll29'> </p>
-			<p class="diceRoll" id='spacedock_roll30'> </p>
-			
-			<br></br>
-			
+			<div id=spacedock_div>
+			  <img  id="spacedock_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/spacedock_qoxejy.png" alt="spacedock"/>
+			  <input class="picklist" type="number" id="spacedock" max="3" min="0"/>
+ 			</div>
+  			
       <!--pds-->
-			<img class="icon" id="pds_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/pds_mbkf73.png" alt="pds"/>
-			<input class="picklist" type="number" id="pds" max="6" min="0"/>
+			<div id=pds_div>
+		  	<img  id="pds_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/pds_mbkf73.png" alt="pds"/>
+		  	<input class="picklist" type="number" id="pds" max="6" min="0"/>
+      </div>
       
-			<p class="diceRoll" id='pds_roll1'> </p>
-			<p class="diceRoll" id='pds_roll2'> </p>
-			<p class="diceRoll" id='pds_roll3'> </p>
-			<p class="diceRoll" id='pds_roll4'> </p>
-			<p class="diceRoll" id='pds_roll5'> </p>
-			<p class="diceRoll" id='pds_roll6'> </p>
-			<p class="diceRoll" id='pds_roll7'> </p>
-			<p class="diceRoll" id='pds_roll8'> </p>
-			<p class="diceRoll" id='pds_roll9'> </p>
-			<p class="diceRoll" id='pds_roll10'> </p>
-			<p class="diceRoll" id='pds_roll11'> </p>
-			<p class="diceRoll" id='pds_roll12'> </p>
-			<p class="diceRoll" id='pds_roll13'> </p>
-			<p class="diceRoll" id='pds_roll14'> </p>
-			<p class="diceRoll" id='pds_roll15'> </p>
-			<p class="diceRoll" id='pds_roll16'> </p>
-			<p class="diceRoll" id='pds_roll17'> </p>
-			<p class="diceRoll" id='pds_roll18'> </p>
-			<p class="diceRoll" id='pds_roll19'> </p>
-			<p class="diceRoll" id='pds_roll20'> </p>
-			<p class="diceRoll" id='pds_roll21'> </p>
-			<p class="diceRoll" id='pds_roll22'> </p>
-			<p class="diceRoll" id='pds_roll23'> </p>
-			<p class="diceRoll" id='pds_roll24'> </p>
-			<p class="diceRoll" id='pds_roll25'> </p>
-			<p class="diceRoll" id='pds_roll26'> </p>
-			<p class="diceRoll" id='pds_roll27'> </p>
-			<p class="diceRoll" id='pds_roll28'> </p>
-			<p class="diceRoll" id='pds_roll29'> </p>
-			<p class="diceRoll" id='pds_roll30'> </p>
-
-			<br></br>
-
 			<!--groundforce-->
-			<img class="icon" id="groundforce_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378190/Units/gf_vwdulh.png" alt="groundforce"/>
-			<input class="picklist" type="number" id="groundforce" max="18" min="0"/>
-			
-		  <p class="diceRoll" id='groundforce_roll1'> </p>
-			<p class="diceRoll" id='groundforce_roll2'> </p>
-			<p class="diceRoll" id='groundforce_roll3'> </p>
-			<p class="diceRoll" id='groundforce_roll4'> </p>
-			<p class="diceRoll" id='groundforce_roll5'> </p>
-			<p class="diceRoll" id='groundforce_roll6'> </p>
-			<p class="diceRoll" id='groundforce_roll7'> </p>
-			<p class="diceRoll" id='groundforce_roll8'> </p>
-			<p class="diceRoll" id='groundforce_roll9'> </p>
-			<p class="diceRoll" id='groundforce_roll10'> </p>
-			<p class="diceRoll" id='groundforce_roll11'> </p>
-			<p class="diceRoll" id='groundforce_roll12'> </p>
-			<p class="diceRoll" id='groundforce_roll13'> </p>
-			<p class="diceRoll" id='groundforce_roll14'> </p>
-			<p class="diceRoll" id='groundforce_roll15'> </p>
-			<p class="diceRoll" id='groundforce_roll16'> </p>
-			<p class="diceRoll" id='groundforce_roll17'> </p>
-			<p class="diceRoll" id='groundforce_roll18'> </p>
-			<p class="diceRoll" id='groundforce_roll19'> </p>
-			<p class="diceRoll" id='groundforce_roll20'> </p>
-			<p class="diceRoll" id='groundforce_roll21'> </p>
-			<p class="diceRoll" id='groundforce_roll22'> </p>
-			<p class="diceRoll" id='groundforce_roll23'> </p>
-			<p class="diceRoll" id='groundforce_roll24'> </p>
-			<p class="diceRoll" id='groundforce_roll25'> </p>
-			<p class="diceRoll" id='groundforce_roll26'> </p>
-			<p class="diceRoll" id='groundforce_roll27'> </p>
-			<p class="diceRoll" id='groundforce_roll28'> </p>
-			<p class="diceRoll" id='groundforce_roll29'> </p>
-			<p class="diceRoll" id='groundforce_roll30'> </p>
-			
-			<br></br>
-
+			<div id=groundforce_div>
+		  	<img id="groundforce_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378190/Units/gf_vwdulh.png" alt="groundforce"/>
+	  		<input class="picklist" type="number" id="groundforce" max="18" min="0"/>
+      </div>
+					
 			<!--fighter-->
-			<img class="icon" id="fighter_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378191/Units/fighter_a3hnqa.png" alt="fighter"/>
-			<input class="picklist" type="number" id="fighter" max="30" min="0"/>
-
-			<p class="diceRoll" id='fighter_roll1'> </p>
-			<p class="diceRoll" id='fighter_roll2'> </p>
-			<p class="diceRoll" id='fighter_roll3'> </p>
-			<p class="diceRoll" id='fighter_roll4'> </p>
-			<p class="diceRoll" id='fighter_roll5'> </p>
-			<p class="diceRoll" id='fighter_roll6'> </p>
-			<p class="diceRoll" id='fighter_roll7'> </p>
-			<p class="diceRoll" id='fighter_roll8'> </p>
-			<p class="diceRoll" id='fighter_roll9'> </p>
-			<p class="diceRoll" id='fighter_roll10'> </p>
-			<p class="diceRoll" id='fighter_roll11'> </p>
-			<p class="diceRoll" id='fighter_roll12'> </p>
-			<p class="diceRoll" id='fighter_roll13'> </p>
-			<p class="diceRoll" id='fighter_roll14'> </p>
-			<p class="diceRoll" id='fighter_roll15'> </p>
-			<p class="diceRoll" id='fighter_roll16'> </p>
-			<p class="diceRoll" id='fighter_roll17'> </p>
-			<p class="diceRoll" id='fighter_roll18'> </p>
-			<p class="diceRoll" id='fighter_roll19'> </p>
-			<p class="diceRoll" id='fighter_roll20'> </p>
-			<p class="diceRoll" id='fighter_roll21'> </p>
-			<p class="diceRoll" id='fighter_roll22'> </p>
-			<p class="diceRoll" id='fighter_roll23'> </p>
-			<p class="diceRoll" id='fighter_roll24'> </p>
-			<p class="diceRoll" id='fighter_roll25'> </p>
-			<p class="diceRoll" id='fighter_roll26'> </p>
-			<p class="diceRoll" id='fighter_roll27'> </p>
-			<p class="diceRoll" id='fighter_roll28'> </p>
-			<p class="diceRoll" id='fighter_roll29'> </p>
-			<p class="diceRoll" id='fighter_roll30'> </p>
-			
-			<br></br>
-
+			<div id=fighter_div>
+	  		<img  id="fighter_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378191/Units/fighter_a3hnqa.png" alt="fighter"/>
+	  		<input class="picklist" type="number" id="fighter" max="30" min="0"/>
+      </div>
+      
 			<!--carrier-->
-			<img class="icon" id="carrier_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378188/Units/carrier_htzodi.png" alt="carrier"/>
-			<input class="picklist" type="number" id="carrier" max="4" min="0"/>
-			
-			<p class="diceRoll" id='carrier_roll1'> </p>
-			<p class="diceRoll" id='carrier_roll2'> </p>
-			<p class="diceRoll" id='carrier_roll3'> </p>
-			<p class="diceRoll" id='carrier_roll4'> </p>
-			<p class="diceRoll" id='carrier_roll5'> </p>
-			<p class="diceRoll" id='carrier_roll6'> </p>
-			<p class="diceRoll" id='carrier_roll7'> </p>
-			<p class="diceRoll" id='carrier_roll8'> </p>
-			<p class="diceRoll" id='carrier_roll9'> </p>
-			<p class="diceRoll" id='carrier_roll10'> </p>
-			<p class="diceRoll" id='carrier_roll11'> </p>
-			<p class="diceRoll" id='carrier_roll12'> </p>
-			<p class="diceRoll" id='carrier_roll13'> </p>
-			<p class="diceRoll" id='carrier_roll14'> </p>
-			<p class="diceRoll" id='carrier_roll15'> </p>
-			<p class="diceRoll" id='carrier_roll16'> </p>
-			<p class="diceRoll" id='carrier_roll17'> </p>
-			<p class="diceRoll" id='carrier_roll18'> </p>
-			<p class="diceRoll" id='carrier_roll19'> </p>
-			<p class="diceRoll" id='carrier_roll20'> </p>
-			<p class="diceRoll" id='carrier_roll21'> </p>
-			<p class="diceRoll" id='carrier_roll22'> </p>
-			<p class="diceRoll" id='carrier_roll23'> </p>
-			<p class="diceRoll" id='carrier_roll24'> </p>
-			<p class="diceRoll" id='carrier_roll25'> </p>
-			<p class="diceRoll" id='carrier_roll26'> </p>
-			<p class="diceRoll" id='carrier_roll27'> </p>
-			<p class="diceRoll" id='carrier_roll28'> </p>
-			<p class="diceRoll" id='carrier_roll29'> </p>
-			<p class="diceRoll" id='carrier_roll30'> </p>
-						
-			<br></br>
+			<div id=carrier_div>
+	  		<img  id="carrier_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378188/Units/carrier_htzodi.png" alt="carrier"/>
+	  		<input class="picklist" type="number" id="carrier" max="4" min="0"/>
+			</div>
 			
 			<!--cruiser-->
-			<img class="icon" id="cruiser_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378191/Units/cruiser_orzbzd.png" alt="cruiser"/>
-			<input class="picklist" type="number" id="cruiser" max="8" min="0"/>
-
-			<!--figure out how to iterate-->
-			<p class="diceRoll" id='cruiser_roll1'> </p>
-			<p class="diceRoll" id='cruiser_roll2'> </p>
-			<p class="diceRoll" id='cruiser_roll3'> </p>
-			<p class="diceRoll" id='cruiser_roll4'> </p>
-			<p class="diceRoll" id='cruiser_roll5'> </p>
-			<p class="diceRoll" id='cruiser_roll6'> </p>
-			<p class="diceRoll" id='cruiser_roll7'> </p>
-			<p class="diceRoll" id='cruiser_roll8'> </p>
-			<p class="diceRoll" id='cruiser_roll9'> </p>
-			<p class="diceRoll" id='cruiser_roll10'> </p>
-			<p class="diceRoll" id='cruiser_roll11'> </p>
-			<p class="diceRoll" id='cruiser_roll12'> </p>
-			<p class="diceRoll" id='cruiser_roll13'> </p>
-			<p class="diceRoll" id='cruiser_roll14'> </p>
-			<p class="diceRoll" id='cruiser_roll15'> </p>
-			<p class="diceRoll" id='cruiser_roll16'> </p>
-			<p class="diceRoll" id='cruiser_roll17'> </p>
-			<p class="diceRoll" id='cruiser_roll18'> </p>
-			<p class="diceRoll" id='cruiser_roll19'> </p>
-			<p class="diceRoll" id='cruiser_roll20'> </p>
-			<p class="diceRoll" id='cruiser_roll21'> </p>
-			<p class="diceRoll" id='cruiser_roll22'> </p>
-			<p class="diceRoll" id='cruiser_roll23'> </p>
-			<p class="diceRoll" id='cruiser_roll24'> </p>
-			<p class="diceRoll" id='cruiser_roll25'> </p>
-			<p class="diceRoll" id='cruiser_roll26'> </p>
-			<p class="diceRoll" id='cruiser_roll27'> </p>
-			<p class="diceRoll" id='cruiser_roll28'> </p>
-			<p class="diceRoll" id='cruiser_roll29'> </p>
-			<p class="diceRoll" id='cruiser_roll30'> </p>
-			
-			<br></br>
+			<div id=cruiser_div>
+	  		<img  id="cruiser_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378191/Units/cruiser_orzbzd.png" alt="cruiser"/>
+	  		<input class="picklist" type="number" id="cruiser" max="8" min="0"/>
+			</div>
 			
 			<!--destroyer-->
-			<img class="icon" id="destroyer_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378190/Units/destroyer_yonst9.png" alt="destroyer"/>
-			<input class="picklist" type="number" id="destroyer" max="8" min="0"/>
-			
-			<p class="diceRoll" id='destroyer_roll1'> </p>
-			<p class="diceRoll" id='destroyer_roll2'> </p>
-			<p class="diceRoll" id='destroyer_roll3'> </p>
-			<p class="diceRoll" id='destroyer_roll4'> </p>
-			<p class="diceRoll" id='destroyer_roll5'> </p>
-			<p class="diceRoll" id='destroyer_roll6'> </p>
-			<p class="diceRoll" id='destroyer_roll7'> </p>
-			<p class="diceRoll" id='destroyer_roll8'> </p>
-			<p class="diceRoll" id='destroyer_roll9'> </p>
-			<p class="diceRoll" id='destroyer_roll10'> </p>
-			<p class="diceRoll" id='destroyer_roll11'> </p>
-			<p class="diceRoll" id='destroyer_roll12'> </p>
-			<p class="diceRoll" id='destroyer_roll13'> </p>
-			<p class="diceRoll" id='destroyer_roll14'> </p>
-			<p class="diceRoll" id='destroyer_roll15'> </p>
-			<p class="diceRoll" id='destroyer_roll16'> </p>
-			<p class="diceRoll" id='destroyer_roll17'> </p>
-			<p class="diceRoll" id='destroyer_roll18'> </p>
-			<p class="diceRoll" id='destroyer_roll19'> </p>
-			<p class="diceRoll" id='destroyer_roll20'> </p>
-			<p class="diceRoll" id='destroyer_roll21'> </p>
-			<p class="diceRoll" id='destroyer_roll22'> </p>
-			<p class="diceRoll" id='destroyer_roll23'> </p>
-			<p class="diceRoll" id='destroyer_roll24'> </p>
-			<p class="diceRoll" id='destroyer_roll25'> </p>
-			<p class="diceRoll" id='destroyer_roll26'> </p>
-			<p class="diceRoll" id='destroyer_roll27'> </p>
-			<p class="diceRoll" id='destroyer_roll28'> </p>
-			<p class="diceRoll" id='destroyer_roll29'> </p>
-			<p class="diceRoll" id='destroyer_roll30'> </p>
-			
-			<br></br>
+			<div id=destroyer_div>
+	  		<img  id="destroyer_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378190/Units/destroyer_yonst9.png" alt="destroyer"/>
+  			<input class="picklist" type="number" id="destroyer" max="8" min="0"/>
+			</div>
 			
 			<!--dreadnought-->
-			<img class="icon" id="dreadnought_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378186/Units/dreadnaught_hoiajy.png" alt="dreadnought"/>
-			<input class="picklist" type="number" id="dreadnought" max="5" min="0"/>
-
-			<p class="diceRoll" id='dreadnought_roll1'> </p>
-			<p class="diceRoll" id='dreadnought_roll2'> </p>
-			<p class="diceRoll" id='dreadnought_roll3'> </p>
-			<p class="diceRoll" id='dreadnought_roll4'> </p>
-			<p class="diceRoll" id='dreadnought_roll5'> </p>
-			<p class="diceRoll" id='dreadnought_roll6'> </p>
-			<p class="diceRoll" id='dreadnought_roll7'> </p>
-			<p class="diceRoll" id='dreadnought_roll8'> </p>
-			<p class="diceRoll" id='dreadnought_roll9'> </p>
-			<p class="diceRoll" id='dreadnought_roll10'> </p>
-			<p class="diceRoll" id='dreadnought_roll11'> </p>
-			<p class="diceRoll" id='dreadnought_roll12'> </p>
-			<p class="diceRoll" id='dreadnought_roll13'> </p>
-			<p class="diceRoll" id='dreadnought_roll14'> </p>
-			<p class="diceRoll" id='dreadnought_roll15'> </p>
-			<p class="diceRoll" id='dreadnought_roll16'> </p>
-			<p class="diceRoll" id='dreadnought_roll17'> </p>
-			<p class="diceRoll" id='dreadnought_roll18'> </p>
-			<p class="diceRoll" id='dreadnought_roll19'> </p>
-			<p class="diceRoll" id='dreadnought_roll20'> </p>
-			<p class="diceRoll" id='dreadnought_roll21'> </p>
-			<p class="diceRoll" id='dreadnought_roll22'> </p>
-			<p class="diceRoll" id='dreadnought_roll23'> </p>
-			<p class="diceRoll" id='dreadnought_roll24'> </p>
-			<p class="diceRoll" id='dreadnought_roll25'> </p>
-			<p class="diceRoll" id='dreadnought_roll26'> </p>
-			<p class="diceRoll" id='dreadnought_roll27'> </p>
-			<p class="diceRoll" id='dreadnought_roll28'> </p>
-			<p class="diceRoll" id='dreadnought_roll29'> </p>
-			<p class="diceRoll" id='dreadnought_roll30'> </p>
-			
-			<br></br>
+			<div id=dreadnought_div>
+  			<img  id="dreadnought_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378186/Units/dreadnaught_hoiajy.png" alt="dreadnought"/>
+  			<input class="picklist" type="number" id="dreadnought" max="5" min="0"/>
+  			</div>
 			
 			<!--warsun-->
-			<img class="icon" id="warsun_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378193/Units/warsun_tqrumm.png" alt="warsun"/>
-			<input class="picklist" type="number" id="warsun" max="2" min="0"/>
-
-			<p class="diceRoll" id='warsun_roll1'> </p>
-			<p class="diceRoll" id='warsun_roll2'> </p>
-			<p class="diceRoll" id='warsun_roll3'> </p>
-			<p class="diceRoll" id='warsun_roll4'> </p>
-			<p class="diceRoll" id='warsun_roll5'> </p>
-			<p class="diceRoll" id='warsun_roll6'> </p>
-			<p class="diceRoll" id='warsun_roll7'> </p>
-			<p class="diceRoll" id='warsun_roll8'> </p>
-			<p class="diceRoll" id='warsun_roll9'> </p>
-			<p class="diceRoll" id='warsun_roll10'> </p>
-			<p class="diceRoll" id='warsun_roll11'> </p>
-			<p class="diceRoll" id='warsun_roll12'> </p>
-			<p class="diceRoll" id='warsun_roll13'> </p>
-			<p class="diceRoll" id='warsun_roll14'> </p>
-			<p class="diceRoll" id='warsun_roll15'> </p>
-			<p class="diceRoll" id='warsun_roll16'> </p>
-			<p class="diceRoll" id='warsun_roll17'> </p>
-			<p class="diceRoll" id='warsun_roll18'> </p>
-			<p class="diceRoll" id='warsun_roll19'> </p>
-			<p class="diceRoll" id='warsun_roll20'> </p>
-			<p class="diceRoll" id='warsun_roll21'> </p>
-			<p class="diceRoll" id='warsun_roll22'> </p>
-			<p class="diceRoll" id='warsun_roll23'> </p>
-			<p class="diceRoll" id='warsun_roll24'> </p>
-			<p class="diceRoll" id='warsun_roll25'> </p>
-			<p class="diceRoll" id='warsun_roll26'> </p>
-			<p class="diceRoll" id='warsun_roll27'> </p>
-			<p class="diceRoll" id='warsun_roll28'> </p>
-			<p class="diceRoll" id='warsun_roll29'> </p>
-			<p class="diceRoll" id='warsun_roll30'> </p>
+			<div id=warsun_div>
+  			<img  id="warsun_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378193/Units/warsun_tqrumm.png" alt="warsun"/>
+	  		<input class="picklist" type="number" id="warsun" max="2" min="0"/>
+			</div>
 			
-			<br></br>
-			
-			<button type="button" onclick="roll()">Roll!</button>
-      
-      <br></br>
+			<div>
+			  <button type="button" onclick="roll()">Roll!</button>
+      </div>
       
       <!--links to rules .pdf (both original and rewritten)-->
-      <a href="https://images-cdn.fantasyflightgames.com/filer_public/14/68/14684746-8906-4b9c-b060-1dee7f62de47/ti3rules.pdf" target="_blank">Original Rules</a> <br></br>
-      <a href="img/ti3simprules.pdf" target="_blank">Simplified Rules</a>
+      <div>
+        <a href="https://images-cdn.fantasyflightgames.com/filer_public/14/68/14684746-8906-4b9c-b060-1dee7f62de47/ti3rules.pdf" target="_blank">Original Rules</a> <br></br>
+        <a href="img/ti3simprules.pdf" target="_blank">Simplified Rules</a>
+      </div>
 		</body>
 	</head>
 </html>

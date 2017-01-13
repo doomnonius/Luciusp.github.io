@@ -1,19 +1,7 @@
-.head {
-
-}
-.icon {
-	/*height:50px;
-	width:30px;*/
-}
-
 .picklist {
 	width: 65px;
 	font-size: 45px;
 	margin-left: 10px;
-}
-
-.datalist {
-  display: none;
 }
 
 .pickrace {
@@ -29,6 +17,13 @@
 	margin-bottom: 10px;
 }
 
-#img_right {
-	margin-left: 20px;
+p {
+  display:inline;
+  font-size:30px;
+}
+
+body {
+  height:795px;
+  width:1224px;
+  background-position:center;
 }
