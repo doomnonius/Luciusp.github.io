@@ -43,6 +43,7 @@ function updateRace() {
 	      check.setAttribute("type", "checkbox");
 	      check.setAttribute("onclick", "checkBox()");
 	      check.setAttribute("id", "checkbox");
+	      check.setAttribute("class","checkbox");
 	      divSpace = document.getElementById("body");
 	      divSpace.insertBefore(check, divSpace.childNodes[4]);
 	      para.innerHTML = "I spend two trade goods to give my ships +1 or my groundforces +2.";
@@ -86,12 +87,8 @@ function roller(rollTime) { //rolls number from 1-10 with a delay to make clear 
 	      console.log(unitNameArr[a].allShots);
 	      console.log(document.getElementById(unitNameArr[a].name + "_div").childElementCount);
         para = document.createElement("p");
-  	    id = document.createAttribute("id");
-        id.value = (unitNameArr[a].name + "_roll" + unitNameArr[a].allShots.toString());	      
-        sty = document.createAttribute("class");      
-  	    sty.value = "diceRoll";
-  	    para.setAttributeNode(sty);
-  	    para.setAttributeNode(id);
+  	    para.setAttribute("class","diceRoll");
+  	    para.setAttribute("id",unitNameArr[a].name + "_roll" + unitNameArr[a].allShots.toString());
   	    div = document.getElementById(unitNameArr[a].name + "_div");
   	    div.appendChild(para);
   	    console.log(document.getElementById(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString()));

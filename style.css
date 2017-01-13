@@ -1,20 +1,25 @@
+.checkbox {
+  width:25px;
+  height:25px;
+}
+
 .picklist {
-	width: 65px;
-	font-size: 45px;
-	margin-left: 10px;
+  width: 65px;
+  font-size: 45px;
+  margin-left: 10px;
 }
 
 .pickrace {
-	width: 220px;
-	font-size: 20px;
-	margin-left:10px;
+  width: 220px;
+  font-size: 20px;
+  margin-left:10px;
 }
 
 .diceRoll {
-	display:inline;
-	margin-left: 20px;
-	font-size: 30px;
-	margin-bottom: 10px;
+  display:inline;
+  margin-left: 20px;
+  font-size: 30px;
+  margin-bottom: 10px;
 }
 
 p {
