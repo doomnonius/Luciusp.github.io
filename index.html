@@ -1,96 +1,37 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<script src="main.js"></script>
-		<title>TI3 War Roller</title>
-		<body id="body">
-		  <!--class selection-->
-			<div>
-			  <datalist hidden class="datalist" id="races">
-		  	  <option value="Letnev">Barony of Letnev</option>
-			    <option value="Hacan">Emirates of Hacan</option>
-			    <option value="Sol">Federation of Sol</option>
-			    <option value="L1Z1X">L1Z1X Mindnet</option>
-			    <option value="Mentak">Mentak Coalition</option>
-			    <option value="Naalu">Naalu Collectiv</option>
-			    <option value="Sardakk">Sardakk N'orr</option>
-			    <option value="Jol-Nar">Universities of Jol-Nar</option>
-			    <option value="Xxcha">Xxcha Kingdom</option>
-			    <option value="Yssaril">Yssaril Tribes</option>
-			    <option value="Saar">(X) Clan of Saar</option>
-			    <option value="Muatt">(X) Ember of Muatt</option>
-			    <option value="Winnu">(X) Winnu</option>
-			    <option value="Yin">(X) Yin Brotherhood</option>
-			  </datalist>
-			
-			  <p>Race:<input class="pickrace" id="race" list="races"><button type="button" onclick="updateRace()">Update</input></p>
-
-			</div>
-					
-			<!--spacedock-->
-			<div id=spacedock_div>
-			  <img  id="spacedock_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/spacedock_qoxejy.png" alt="spacedock"/>
-			  <input class="picklist" type="number" id="spacedock" max="3" min="0"/>
- 			</div>
-  			
-      <!--pds-->
-			<div id=pds_div>
-		  	<img  id="pds_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/pds_mbkf73.png" alt="pds"/>
-		  	<input class="picklist" type="number" id="pds" max="6" min="0"/>
-      </div>
-      
-			<!--groundforce-->
-			<div id=groundforce_div>
-		  	<img id="groundforce_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378190/Units/gf_vwdulh.png" alt="groundforce"/>
-	  		<input class="picklist" type="number" id="groundforce" max="18" min="0"/>
-      </div>
-					
-			<!--fighter-->
-			<div id=fighter_div>
-	  		<img  id="fighter_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378191/Units/fighter_a3hnqa.png" alt="fighter"/>
-	  		<input class="picklist" type="number" id="fighter" max="30" min="0"/>
-      </div>
-      
-			<!--carrier-->
-			<div id=carrier_div>
-	  		<img  id="carrier_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378188/Units/carrier_htzodi.png" alt="carrier"/>
-	  		<input class="picklist" type="number" id="carrier" max="4" min="0"/>
-			</div>
-			
-			<!--cruiser-->
-			<div id=cruiser_div>
-	  		<img  id="cruiser_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378191/Units/cruiser_orzbzd.png" alt="cruiser"/>
-	  		<input class="picklist" type="number" id="cruiser" max="8" min="0"/>
-			</div>
-			
-			<!--destroyer-->
-			<div id=destroyer_div>
-	  		<img  id="destroyer_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378190/Units/destroyer_yonst9.png" alt="destroyer"/>
-  			<input class="picklist" type="number" id="destroyer" max="8" min="0"/>
-			</div>
-			
-			<!--dreadnought-->
-			<div id=dreadnought_div>
-  			<img  id="dreadnought_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378186/Units/dreadnaught_hoiajy.png" alt="dreadnought"/>
-  			<input class="picklist" type="number" id="dreadnought" max="5" min="0"/>
-  			</div>
-			
-			<!--warsun-->
-			<div id=warsun_div>
-  			<img  id="warsun_img" src="http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378193/Units/warsun_tqrumm.png" alt="warsun"/>
-	  		<input class="picklist" type="number" id="warsun" max="2" min="0"/>
-			</div>
-			
-			<div>
-			  <button type="button" onclick="roll()">Roll!</button>
-      </div>
-      
-      <!--links to rules .pdf (both original and rewritten)-->
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="main.js"></script>
+    <title>TI3 War Roller</title>
+    <body id="body">
       <div>
-        <a href="https://images-cdn.fantasyflightgames.com/filer_public/14/68/14684746-8906-4b9c-b060-1dee7f62de47/ti3rules.pdf" target="_blank">Original Rules</a> <br></br>
-        <a href="ti3simprules.pdf" target="_blank">Simplified Rules</a>
+        <p><input class="checkbox" type="checkbox" onclick="createCombat()" id="space_battle">Space Battle</input><input class="checkbox" type="checkbox" onclick="createCombat()" id="invasion_combat">Invasion Combat</input></p>
       </div>
-		</body>
-	</head>
+      <!--class selection-->
+      <div>
+        <datalist hidden class="datalist" id="races">
+          <option value="Letnev">Barony of Letnev</option>
+          <option value="Hacan">Emirates of Hacan</option>
+          <option value="Sol">Federation of Sol</option>
+          <option value="L1Z1X">L1Z1X Mindnet</option>
+          <option value="Mentak">Mentak Coalition</option>
+          <option value="Naalu">Naalu Collectiv</option>
+          <option value="Sardakk">Sardakk N'orr</option>
+          <option value="Jol-Nar">Universities of Jol-Nar</option>
+          <option value="Xxcha">Xxcha Kingdom</option>
+          <option value="Yssaril">Yssaril Tribes</option>
+          <option value="Saar">(X) Clan of Saar</option>
+          <option value="Muatt">(X) Ember of Muatt</option>
+          <option value="Winnu">(X) Winnu</option>
+          <option value="Yin">(X) Yin Brotherhood</option>
+        </datalist>
+        <p>Race:<input class="pickrace" id="race" list="races"><button type="button" onclick="updateRace()">Update</button></input></p>
+      </div>
+      <div id=combat_div></div>
+      <div><button type="button" onclick="roll()">Roll!</button></div>
+      <!--links to rules .pdf (both original and rewritten)-->
+      <div><a href="https://images-cdn.fantasyflightgames.com/filer_public/14/68/14684746-8906-4b9c-b060-1dee7f62de47/ti3rules.pdf" target="_blank">Original Rules</a> <br></br><a href="ti3simprules.pdf" target="_blank">Simplified Rules</a></div>
+    </body>
+  </head>
 </html>
