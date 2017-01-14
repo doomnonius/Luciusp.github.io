@@ -1,6 +1,48 @@
 var unitNameArr = [{name:"pds",hitsAt:6,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/pds_mbkf73.png"},{name:"groundforce",hitsAt:8,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378190/Units/gf_vwdulh.png"},{name:"spacedock",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/spacedock_qoxejy.png"},{name:"fighter",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378191/Units/fighter_a3hnqa.png"},{name:"carrier",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378188/Units/carrier_htzodi.png"},{name:"cruiser",hitsAt:7,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378191/Units/cruiser_orzbzd.png"},{name:"destroyer",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378190/Units/destroyer_yonst9.png"},{name:"dreadnought",hitsAt:5,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378186/Units/dreadnaught_hoiajy.png"},{name:"warsun",hitsAt:3,numShots:3,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378193/Units/warsun_tqrumm.png"}];
 var br = document.createElement("br");
-//to add: second, we'll need some way to mark upgrades and action cards and political cards and etc. that can influence battles, and there will be another function here that correctly applies how each one affects the rolls. I'm thinking of using checkboxes in a hidden menu.
+//to add: we'll need some way to mark upgrades and action cards and political cards and etc. that can influence battles, and there will be another function here that correctly applies how each one affects the rolls. I'm thinking of using checkboxes in a hidden menu.
+
+//function incrementGood() { //ie hitsAt -1; add an if-else for each possible way of getting bonuses
+//  if () {
+//    for (var a = 0; a < 9; a++) { 
+//      unitNameArr[a].hitsAt--; 
+//      console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); 
+//    }
+//  }
+//}
+
+function decrementXxcha() { //ie hitsAt +1; add an if-else for each possible way of getting penalties
+  if (document.getElementById("xxcha_check").checked) {
+    for (var a = 0; a < 9; a++) {
+      unitNameArr[a].hitsAt++;
+      console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); 
+    }
+  } else {
+    for (var a = 0; a < 9; a++) {
+      unitNameArr[a].hitsAt--;
+      console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); 
+    }
+  }
+}
+
+function remove() {
+          body.removeChild(document.getElementById("para"));
+          if (document.getElementById("para2")) {
+            body.removeChild(document.getElementById("para2"));
+          }
+          if (document.getElementById("para3")) {
+            body.removeChild(document.getElementById("para3"));
+          }
+}
+//create a button for the xxcha
+function noModifiers() {
+          var para = document.createElement("p");
+          para.setAttribute("fontsize","20");
+          para.setAttribute("id","para");
+          para.innerHTML = "My race does not give any combat modifiers.";
+          body.insertBefore(para, body.childNodes[8]);
+}
+
 function updateValue() {
   for (var a = 0; a < 9; a++) { //this for loop creates the keys numUnits and allShots and gives them values based on data from the .html for each object in unitNameArr
     if (document.getElementById(unitNameArr[a].name)) {
@@ -92,93 +134,237 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
   console.log(race);
   switch (race) { //a switch statement for how each race affects hitsAt, numShots, or allShots
       case "Letnev":
-        if (!(document.getElementById("checkbox_Letnev"))) {
+        if (!(document.getElementById("para"))) {
           var para = document.createElement("p");
           check = document.createElement("INPUT");
           check.setAttribute("type", "checkbox");
           check.setAttribute("onclick", "checkBox()");
-          check.setAttribute("id", "checkbox_Letnev");
+          check.setAttribute("id", "para");
           check.setAttribute("class","checkbox");
-          divSpace = document.getElementById("body");
-          divSpace.insertBefore(check, divSpace.childNodes[4]);
+          para.setAttribute("id","para2");
           para.innerHTML = "I spend two trade goods to give my ships +1 or my groundforces +2.";
-          divSpace.insertBefore(para, divSpace.childNodes[5]);
+          body.insertBefore(para, body.childNodes[8]);
           var scr = document.createElement("script");
-          scr.innerHTML = (function checkBox() { if (document.getElementById("checkbox_Letnev")) { if (document.getElementById("checkbox_Letnev").checked) { for (var a = 0; a < 9; a++) { unitNameArr[a].hitsAt--; console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); } } else { for (var a = 0; a < 9; a++) { unitNameArr[a].hitsAt++; console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); } } } });
-          divSpace.insertBefore(scr, divSpace.childNodes[6]);
-          divSpace.insertBefore(br, divSpace.childNodes[7]);
-          divSpace.insertBefore(br, divSpace.childNodes[8]);
+          scr.innerHTML = (function checkBox() { if (document.getElementById("para")) { if (document.getElementById("para").checked) { for (var a = 0; a < 9; a++) { unitNameArr[a].hitsAt--; console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); } } else { for (var a = 0; a < 9; a++) { unitNameArr[a].hitsAt++; console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); } } } });
+          check.appendChild(scr);
+          body.insertBefore(check, body.childNodes[8]);
+        } else {
+          remove();
+          var para = document.createElement("p");
+          check = document.createElement("INPUT");
+          check.setAttribute("type", "checkbox");
+          check.setAttribute("onclick", "checkBox()");
+          check.setAttribute("id", "para");
+          check.setAttribute("class","checkbox");
+          para.setAttribute("id","para2");
+          para.innerHTML = "I spend two trade goods to give my ships +1 or my groundforces +2.";
+          body.insertBefore(para, body.childNodes[8]);
+          var scr = document.createElement("script");
+          scr.innerHTML = (function checkBox() { if (document.getElementById("para")) { if (document.getElementById("para").checked) { for (var a = 2; a < 9; a++) { unitNameArr[a].hitsAt--; console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); } unitNameArr[1].hitsAt = 6; } else { for (var a = 2; a < 9; a++) { unitNameArr[a].hitsAt++; console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); } unitNameArr[1].hitsAt = 8; } } });
+          check.appendChild(scr);
+          body.insertBefore(check, body.childNodes[8]);
         }
         break;
       case "Hacan":
         if (!(document.getElementById("para"))) {
-        var para = document.createElement("p");
-          para.setAttribute("fontsize","20");
-          para.setAttribute("id","para");
-          para.innerHTML = "Your class does not give any combat modifiers.";
-          body.insertBefore(para, body.childNodes[4]);
+          noModifiers();
+        } else {
+          remove();
+          noModifiers();
         }
         break;
       case "Sol":
         if (!(document.getElementById("para"))) {
-          var para = document.createElement("p");
-          para.setAttribute("fontsize","20");
-          para.setAttribute("id","para");
-          para.innerHTML = "Your class does not give any combat modifiers.";
-          body.insertBefore(para, body.childNodes[4]);
+          noModifiers();
+        } else {
+          remove();
+          noModifiers();
         }
         break;
       case "L1Z1X":
         if (!(document.getElementById("para"))) {
-          unitNameArr[7].hitsAt--;
+          unitNameArr[7].hitsAt = 4;
           var para = document.createElement("p");
           para.setAttribute("fontsize","20");
           para.setAttribute("id","para");
-          para.innerHTML = "Your " + unitNameArr[7].name + "s now hit at " + unitNameArr[7].hitsAt;
-          body.insertBefore(para, body.childNodes[4]);
+          para.setAttribute("display","block");
+          para.innerHTML = "My " + unitNameArr[7].name + "s now have +1";
+          body.insertBefore(para, body.childNodes[8]);
+        } else {
+          remove();
+          unitNameArr[7].hitsAt = 4;
+          var para = document.createElement("p");
+          para.setAttribute("fontsize","20");
+          para.setAttribute("id","para");
+          para.setAttribute("display","block");
+          para.innerHTML = "My " + unitNameArr[7].name + "s now have +1. <br>";
+          body.insertBefore(para, body.childNodes[8]);
         }
-        console.log("Your " + unitNameArr[7].name + "s now hit at " + unitNameArr[7].hitsAt);
-        //groundforces get +1 when attacking only; add another checkbox
+        console.log(unitNameArr[7].name + "s now hit at " + unitNameArr[7].hitsAt);
+        if (document.getElementById("invasion_combat").checked) {
+          var para = document.createElement("p");
+          check = document.createElement("INPUT");
+          check.setAttribute("type", "checkbox");
+          check.setAttribute("onclick", "checkBox()");
+          check.setAttribute("id", "para2");
+          check.setAttribute("class","checkbox");
+          para.setAttribute("id","para3");
+          para.setAttribute("display","block");
+          para.innerHTML = "My groundforces are invading and therefore get +1.";
+          body.insertBefore(para, body.childNodes[10]);
+          var scr = document.createElement("script");
+          scr.innerHTML = (function checkBox() { if (document.getElementById("para2")) { if (document.getElementById("para2").checked) { unitNameArr[1].hitsAt = 7; console.log(unitNameArr[1].name + " now hits on " + unitNameArr[1].hitsAt); } else { unitNameArr[1].hitsAt = 8; console.log(unitNameArr[1].name + " now hits on " + unitNameArr[1].hitsAt); } } } );
+          check.appendChild(scr);
+          body.insertBefore(check, body.childNodes[9]);
+        }
         break;
       case "Mentak":
-            
-      case "Naalu":
-            
-      case "Sardakk":
-            
-      case "Jol-Nar":
-            
-      case "Xxcha":
-            
-      case "Yssaril":
-            
-      case "Saar":
         if (!(document.getElementById("para"))) {
+          noModifiers();
+        } else {
+          remove();
+          noModifiers();
+        }
+        break;
+      case "Naalu":
+        if (!(document.getElementById("para"))) {
+          unitNameArr[3].hitsAt = 8;
           var para = document.createElement("p");
           para.setAttribute("fontsize","20");
           para.setAttribute("id","para");
-          para.innerHTML = "Your class does not give any combat modifiers.";
-          body.insertBefore(para, body.childNodes[4]);
+          para.setAttribute("display","block");
+          para.innerHTML = "My " + unitNameArr[3].name + "s now have +1";
+          body.insertBefore(para, body.childNodes[8]);
+        } else {
+          remove();
+          unitNameArr[3].hitsAt = 8;
+          var para = document.createElement("p");
+          para.setAttribute("fontsize","20");
+          para.setAttribute("id","para");
+          para.setAttribute("display","block");
+          para.innerHTML = "My " + unitNameArr[3].name + "s now have +1";
+          body.insertBefore(para, body.childNodes[8]);
+        }
+        break;
+      case "Sardakk":
+        if (!(document.getElementById("para"))) {
+          for (var a = 0; a < 9; a++) { 
+            unitNameArr[a].hitsAt--; 
+            console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); 
+          }
+          var para = document.createElement("p");
+          para.setAttribute("fontsize","20");
+          para.setAttribute("id","para");
+          para.setAttribute("display","block");
+          para.innerHTML = "All my units now have +1";
+          body.insertBefore(para, body.childNodes[8]);
+        } else { 
+          remove();
+          for (var a = 0; a < 9; a++) { 
+            unitNameArr[a].hitsAt--; 
+            console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); 
+          }
+          var para = document.createElement("p");
+          para.setAttribute("fontsize","20");
+          para.setAttribute("id","para");
+          para.setAttribute("display","block");
+          para.innerHTML = "All my units now have +1";
+          body.insertBefore(para, body.childNodes[8]);
+        }
+      break;
+      case "Jol-Nar":
+        if (!(document.getElementById("para"))) {
+          for (var a = 0; a < 9; a++) { 
+            unitNameArr[a].hitsAt++; 
+            console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); 
+          }
+          var para = document.createElement("p");
+          para.setAttribute("fontsize","20");
+          para.setAttribute("id","para");
+          para.setAttribute("display","block");
+          para.innerHTML = "All my units now have -1";
+          body.insertBefore(para, body.childNodes[8]);
+        } else { 
+          remove();
+          for (var a = 0; a < 9; a++) { 
+            unitNameArr[a].hitsAt++; 
+            console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); 
+          }
+          var para = document.createElement("p");
+          para.setAttribute("fontsize","20");
+          para.setAttribute("id","para");
+          para.setAttribute("display","block");
+          para.innerHTML = "All my units now have -1";
+          body.insertBefore(para, body.childNodes[8]);
+        }
+      break;
+      case "Xxcha":
+        if (!(document.getElementById("para"))) {
+          noModifiers();
+        } else {
+          remove();
+          noModifiers();
+        }
+        break;
+      case "Yssaril":
+        if (!(document.getElementById("para"))) {
+          noModifiers();
+        } else {
+          remove();
+          noModifiers();
+        }
+        break;
+      case "Saar":
+        if (!(document.getElementById("para"))) {
+          noModifiers();
+        } else {
+          remove();
+          noModifiers();
         }
         break;
       case "Muatt":
         if (!(document.getElementById("para"))) {
-          var para = document.createElement("p");
-          para.setAttribute("fontsize","20");
-          para.setAttribute("id","para");
-          para.innerHTML = "Your class does not give any combat modifiers.";
-          body.insertBefore(para, body.childNodes[4]);
+          noModifiers();
+        } else {
+          remove();
+          noModifiers();
         }
         break;
       case "Winnu":
-            
+        if (!(document.getElementById("para"))) {
+          noModifiers();
+        } else {
+          remove();
+          noModifiers();
+        }
+        break;
       case "Yin":
-            
+        if (!(document.getElementById("para"))) {
+          noModifiers();
+        } else {
+          remove();
+          noModifiers();
+        }
+        break;
       default: //deletes any elements created with the "para" id; resets all thingy stats to base value
-        var para = document.createElement("p");
-        para.setAttribute("fontsize","20");
-        para.innerHTML = "Your class does not give any combat modifiers.";
-        body.insertBefore(para, body.childNodes[4]);
+        if (document.getElementById("para")) {
+          remove();
+          var para = document.createElement("p");
+          para.setAttribute("fontsize","20");
+          para.setAttribute("id","para");
+          para.setAttribute("display","block");
+          para.innerHTML = "All units reset"; //this is currently a lie
+          body.insertBefore(para, body.childNodes[8]);
+        }
+        unitNameArr[0].hitsAt = 6;
+        unitNameArr[1].hitsAt = 8;
+        unitNameArr[2].hitsAt = 9;
+        unitNameArr[3].hitsAt = 9;
+        unitNameArr[4].hitsAt = 9;
+        unitNameArr[5].hitsAt = 7;
+        unitNameArr[6].hitsAt = 9;
+        unitNameArr[7].hitsAt = 5;
+        unitNameArr[8].hitsAt = 3;
         break;
     }
 }

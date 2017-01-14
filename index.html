@@ -8,6 +8,9 @@
       <div>
         <p><input class="checkbox" type="checkbox" onclick="createCombat()" id="space_battle">Space Battle</input><input class="checkbox" type="checkbox" onclick="createCombat()" id="invasion_combat">Invasion Combat</input></p>
       </div>
+      <div>
+        <p><input class="checkbox" type="checkbox" onclick="decrementXxcha()" id="xxcha_check">I am in the first round of combat against the Xxcha and all my units have -1</input></p>
+      </div>
       <!--class selection-->
       <div>
         <datalist hidden class="datalist" id="races">
@@ -16,7 +19,7 @@
           <option value="Sol">Federation of Sol</option>
           <option value="L1Z1X">L1Z1X Mindnet</option>
           <option value="Mentak">Mentak Coalition</option>
-          <option value="Naalu">Naalu Collectiv</option>
+          <option value="Naalu">Naalu Collective</option>
           <option value="Sardakk">Sardakk N'orr</option>
           <option value="Jol-Nar">Universities of Jol-Nar</option>
           <option value="Xxcha">Xxcha Kingdom</option>
@@ -26,7 +29,7 @@
           <option value="Winnu">(X) Winnu</option>
           <option value="Yin">(X) Yin Brotherhood</option>
         </datalist>
-        <p>Race:<input class="pickrace" id="race" list="races"><button type="button" onclick="updateRace()">Update</button></input></p>
+        <p>Race:<input class="pickrace" id="race" list="races" onchange="updateRace()"><button type="button" onclick="updateRace()">Update</button></input></p>
       </div>
       <div id=combat_div></div>
       <div><button type="button" onclick="roll()">Roll!</button></div>
