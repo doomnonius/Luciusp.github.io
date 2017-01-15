@@ -1,15 +1,6 @@
 var unitNameArr = [{name:"pds",hitsAt:6,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/pds_mbkf73.png"},{name:"groundforce",hitsAt:8,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378190/Units/gf_vwdulh.png"},{name:"spacedock",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/spacedock_qoxejy.png"},{name:"fighter",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378191/Units/fighter_a3hnqa.png"},{name:"carrier",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378188/Units/carrier_htzodi.png"},{name:"cruiser",hitsAt:7,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378191/Units/cruiser_orzbzd.png"},{name:"destroyer",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378190/Units/destroyer_yonst9.png"},{name:"dreadnought",hitsAt:5,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378186/Units/dreadnaught_hoiajy.png"},{name:"warsun",hitsAt:3,numShots:3,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378193/Units/warsun_tqrumm.png"}];
 var br = document.createElement("br");
-//to add: we'll need some way to mark upgrades and action cards and political cards and etc. that can influence battles, and there will be another function here that correctly applies how each one affects the rolls. I'm thinking of using checkboxes in a hidden menu.
-
-//function incrementGood() { //ie hitsAt -1; add an if-else for each possible way of getting bonuses
-//  if () {
-//    for (var a = 0; a < 9; a++) { 
-//      unitNameArr[a].hitsAt--; 
-//      console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); 
-//    }
-//  }
-//}
+//to add: it's stupid to make a checkbox for each possible instance of fight affecting cards, so i will just right more one more box with a min of -3 and a max of 3 for overall and for each unit individually. so thats ten boxes overall; these boxes need to be added to the creation part of the document; next, look into structure stuff and make all this information into a table so it looks better
 
 function decrementXxcha() { //ie hitsAt +1; add an if-else for each possible way of getting penalties
   if (document.getElementById("xxcha_check").checked) {
@@ -26,21 +17,30 @@ function decrementXxcha() { //ie hitsAt +1; add an if-else for each possible way
 }
 
 function remove() {
-          body.removeChild(document.getElementById("para"));
-          if (document.getElementById("para2")) {
-            body.removeChild(document.getElementById("para2"));
-          }
-          if (document.getElementById("para3")) {
-            body.removeChild(document.getElementById("para3"));
-          }
+  body.removeChild(document.getElementById("para"));
+  if (document.getElementById("para2")) {
+    body.removeChild(document.getElementById("para2"));
+  }
+  if (document.getElementById("para3")) {
+    body.removeChild(document.getElementById("para3"));
+  }
+  unitNameArr[0].hitsAt = 6;
+  unitNameArr[1].hitsAt = 8;
+  unitNameArr[2].hitsAt = 9;
+  unitNameArr[3].hitsAt = 9;
+  unitNameArr[4].hitsAt = 9;
+  unitNameArr[5].hitsAt = 7;
+  unitNameArr[6].hitsAt = 9;
+  unitNameArr[7].hitsAt = 5;
+  unitNameArr[8].hitsAt = 3;
 }
-//create a button for the xxcha
+
 function noModifiers() {
-          var para = document.createElement("p");
-          para.setAttribute("fontsize","20");
-          para.setAttribute("id","para");
-          para.innerHTML = "My race does not give any combat modifiers.";
-          body.insertBefore(para, body.childNodes[8]);
+  var para = document.createElement("p");
+  para.setAttribute("fontsize","20");
+  para.setAttribute("id","para");
+  para.innerHTML = "My race does not give any combat modifiers.";
+  body.insertBefore(para, body.childNodes[8]);
 }
 
 function updateValue() {
@@ -62,6 +62,9 @@ function updateValue() {
       }
     }
   }
+//  for (var a=0; a<9; a++){
+//    unitNameArr[a].hitsAt = document.getElementById(unitNameArr[a].name + "_modify")
+//  }
 }
 
 function createCombat() { //this makes the elements for a space battle appear; practically this is going to involve putting the image links in the unit array
@@ -356,15 +359,6 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           para.innerHTML = "All units reset"; //this is currently a lie
           body.insertBefore(para, body.childNodes[8]);
         }
-        unitNameArr[0].hitsAt = 6;
-        unitNameArr[1].hitsAt = 8;
-        unitNameArr[2].hitsAt = 9;
-        unitNameArr[3].hitsAt = 9;
-        unitNameArr[4].hitsAt = 9;
-        unitNameArr[5].hitsAt = 7;
-        unitNameArr[6].hitsAt = 9;
-        unitNameArr[7].hitsAt = 5;
-        unitNameArr[8].hitsAt = 3;
         break;
     }
 }
