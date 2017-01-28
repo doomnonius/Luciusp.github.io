@@ -1,6 +1,13 @@
 var unitNameArr = [{name:"pds",hitsAt:6,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/pds_mbkf73.png"},{name:"groundforce",hitsAt:8,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378190/Units/gf_vwdulh.png"},{name:"spacedock",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378192/Units/spacedock_qoxejy.png"},{name:"fighter",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378191/Units/fighter_a3hnqa.png"},{name:"destroyer",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378190/Units/destroyer_yonst9.png"},{name:"cruiser",hitsAt:7,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378191/Units/cruiser_orzbzd.png"},{name:"dreadnought",hitsAt:5,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378186/Units/dreadnaught_hoiajy.png"},{name:"carrier",hitsAt:9,numShots:1,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,w_50/a_90/v1483378188/Units/carrier_htzodi.png"},{name:"warsun",hitsAt:3,numShots:3,image:"http://res.cloudinary.com/luciusp/image/upload/c_scale,h_50/v1483378193/Units/warsun_tqrumm.png"}];
-var br = document.createElement("br");
-//to add: it's stupid to make a checkbox for each possible instance of fight affecting cards, so i will just right more one more box with a min of -3 and a max of 3 for overall and for each unit individually. so thats ten boxes overall; these boxes need to be added to the creation part of the document; next, look into structure stuff and make all this information into a table so it looks better
+
+function resetRolls() {
+  for (var a = 0; a < 9; a++) {
+    if (document.getElementById(unitNameArr[a].name)) {
+      while (document.getElementById(unitNameArr[a].name + "_div").childElementCount > 3)
+        document.getElementById(unitNameArr[a].name + "_div").removeChild((document.getElementById(unitNameArr[a].name + "_div")).childNodes[3]);
+    }
+  }
+}
 
 function decrementXxcha() { //ie hitsAt +1; add an if-else for each possible way of getting penalties
   if (document.getElementById("xxcha_check").checked) {
@@ -51,7 +58,6 @@ function updateValue() {
         console.log("Instantiated " + unitNameArr[a].numUnits + " " + unitNameArr[a].name + "s"); //instantiates all unit objects
         unitNameArr[a].allShots = (unitNameArr[a].numShots) * (unitNameArr[a].numUnits);
         allShots = unitNameArr[a].allShots;
-        console.log(allShots);
       } else {  //this else loop hides all unit types (images, data entries, and dicerolls) that are not participating in the fight
         console.log("Hiding unused unit " + unitNameArr[a].name)
         if (document.getElementById(unitNameArr[a].name + "_div")) {
@@ -62,9 +68,13 @@ function updateValue() {
       }
     }
   }
-//  for (var a=0; a<9; a++){
-//    unitNameArr[a].hitsAt = document.getElementById(unitNameArr[a].name + "_modify")
-//  }
+  for (var a=0; a<9; a++){
+    if (document.getElementById(unitNameArr[a].name + "_mods")) {
+      console.log("Original: " + unitNameArr[a].hitsAt);
+      unitNameArr[a].hitsAt -= ~~(document.getElementById(unitNameArr[a].name + "_mods").value);
+      console.log("New: " + unitNameArr[a].hitsAt);
+    }
+  }
 }
 
 function createRow(a) {
@@ -75,6 +85,12 @@ function createRow(a) {
         var td = document.createElement("td");
         var tdimage = document.createElement("td");
         var tdinput = document.createElement("td");
+        var mods = document.createElement("input");
+        mods.setAttribute("class", "picklist");
+        mods.setAttribute("id", unitNameArr[a].name + "_mods");
+        mods.setAttribute("type", "number");
+        mods.setAttribute("value", 0);
+        td.appendChild(mods);
         tr.appendChild(td);
         var image = document.createElement("img");//create image link
         image.setAttribute("id", unitNameArr[a].name + "_img");//add appropriate attributes
@@ -381,10 +397,13 @@ function roller(rollTime) { //rolls number from 1-10 with a delay to make clear 
           para.setAttribute("id",unitNameArr[a].name + "_roll" + unitNameArr[a].allShots.toString());
           var tr = document.getElementById(unitNameArr[a].name + "_div");
           td.appendChild(para);
-          tr.insertBefore(td, tr.childNodes[3]);
+          tr.appendChild(td);
         } 
         console.log(document.getElementById(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString()));
         document.getElementById(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString()).innerHTML = output;
+        if (output>=unitNameArr[a].hitsAt) {
+          document.getElementById(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString()).style.color = "#F00";
+        }
           for (i = 0; i < 100; i++) {
             roller();
           }
@@ -395,6 +414,7 @@ function roller(rollTime) { //rolls number from 1-10 with a delay to make clear 
 }
 
 function roll() {
+  resetRolls();
   updateValue();
   roller(30);
 }
