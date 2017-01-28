@@ -31,7 +31,17 @@
         </datalist>
         <p>Race:<input class="pickrace" id="race" list="races" onchange="updateRace()"><button type="button" onclick="updateRace()">Update</button></input></p>
       </div>
-      <div id=combat_div></div>
+      <table>
+        <thead>
+          <tr id="theads">
+            <th>Mods</th>
+            <th>Type</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody id=combat_div>
+        </tbody>
+      </table>
       <div><button type="button" onclick="roll()">Roll!</button></div>
       <!--links to rules .pdf (both original and rewritten)-->
       <div><a href="https://images-cdn.fantasyflightgames.com/filer_public/14/68/14684746-8906-4b9c-b060-1dee7f62de47/ti3rules.pdf" target="_blank">Original Rules</a> <br></br><a href="ti3simprules.pdf" target="_blank">Simplified Rules</a></div>

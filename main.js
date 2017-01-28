@@ -67,26 +67,36 @@ function updateValue() {
 //  }
 }
 
-function createCombat() { //this makes the elements for a space battle appear; practically this is going to involve putting the image links in the unit array
-  if (document.getElementById("space_battle").checked) { //create entry boxes for all space units
-    for (var a = 2; a < 9; a++) {
-      console.log(document.getElementById("space_battle").checked);
-      if (!(document.getElementById(unitNameArr[a].name + "_div"))) {
-        var div = document.createElement("div"); //create a div for the unit info
-        div.setAttribute("id", unitNameArr[a].name + "_div");
+function createRow(a) {
+  var tr = document.createElement("tr"); //create a div for the unit info
+        tr.setAttribute("id", unitNameArr[a].name + "_div");
         var divBattle = document.getElementById("combat_div"); //put that div in the right spot
-        divBattle.appendChild(div);
+        divBattle.appendChild(tr);
+        var td = document.createElement("td");
+        var tdimage = document.createElement("td");
+        var tdinput = document.createElement("td");
+        tr.appendChild(td);
         var image = document.createElement("img");//create image link
         image.setAttribute("id", unitNameArr[a].name + "_img");//add appropriate attributes
         image.setAttribute("alt", unitNameArr[a].name);
         image.setAttribute("src", unitNameArr[a].image);
+        tdimage.appendChild(image);
+        tr.appendChild(tdimage); //add image
         var inpt = document.createElement("input");//create entry box
         inpt.setAttribute("class", "picklist");//add appropriate attributes
         inpt.setAttribute("id", unitNameArr[a].name);
         inpt.setAttribute("type", "number");
         inpt.setAttribute("min","0");
-        div.appendChild(image); //add image
-        div.appendChild(inpt); //add input
+        tdinput.appendChild(inpt);
+        tr.appendChild(tdinput); //add input
+}
+
+function createCombat() { //this makes the elements for a space battle appear; practically this is going to involve putting the image links in the unit array
+  if (document.getElementById("space_battle").checked) { //create entry boxes for all space units
+    for (var a = 2; a < 9; a++) {
+      console.log(document.getElementById("space_battle").checked);
+      if (!(document.getElementById(unitNameArr[a].name + "_div"))) {
+        createRow(a);
       }
     }
   } else { //remove all spacebattle boxes
@@ -103,21 +113,7 @@ function createCombat() { //this makes the elements for a space battle appear; p
     for (a=0; a<2; a++) {
       console.log(document.getElementById("invasion_combat").checked);
       if (!(document.getElementById(unitNameArr[a].name + "_div"))) {
-        var div = document.createElement("div"); //create a div for the unit info
-        div.setAttribute("id", unitNameArr[a].name + "_div");
-        var divBattle = document.getElementById("combat_div"); //put that div in the right spot
-        divBattle.appendChild(div);
-        var image = document.createElement("img");//create image link
-        image.setAttribute("id", unitNameArr[a].name + "_img");//add appropriate attributes
-        image.setAttribute("alt", unitNameArr[a].name);
-        image.setAttribute("src", unitNameArr[a].image);
-        var inpt = document.createElement("input");//create entry box
-        inpt.setAttribute("class", "picklist");//add appropriate attributes
-        inpt.setAttribute("id", unitNameArr[a].name);
-        inpt.setAttribute("type", "number");
-        inpt.setAttribute("min","0");
-        div.appendChild(image); //add image
-        div.appendChild(inpt); //add input
+        createRow(a);
       }
     }
   } else {
@@ -356,7 +352,7 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           para.setAttribute("fontsize","20");
           para.setAttribute("id","para");
           para.setAttribute("display","block");
-          para.innerHTML = "All units reset"; //this is currently a lie
+          para.innerHTML = "All units reset";
           body.insertBefore(para, body.childNodes[8]);
         }
         break;
@@ -365,16 +361,28 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
 /*----------------------------------*/
 function roller(rollTime) { //rolls number from 1-10 with a delay to make clear it's a new roll
   setTimeout(function() {
+    if (!(document.getElementById("results"))) {
+      var thead = document.getElementById("theads");
+      var results = document.createElement("th");
+      results.setAttribute("id","results");
+      results.setAttribute("colspan", 30);
+      results.innerHTML = "Results";
+      thead.appendChild(results);
+    }
     for (a = 0; a < 9; a++) {
       if (unitNameArr[a].allShots> 0) {
         var output = Math.floor(Math.random() * 10) + 0;
         console.log(unitNameArr[a].allShots);
         console.log(document.getElementById(unitNameArr[a].name + "_div").childElementCount);
-        para = document.createElement("p");
-        para.setAttribute("class","diceRoll");
-        para.setAttribute("id",unitNameArr[a].name + "_roll" + unitNameArr[a].allShots.toString());
-        div = document.getElementById(unitNameArr[a].name + "_div");
-        div.appendChild(para);
+        if (!(document.getElementById(unitNameArr[a].name + "_roll" + unitNameArr[a].allShots.toString()))) {
+          var td = document.createElement("td");
+          para = document.createElement("p");
+          para.setAttribute("class","diceRoll");
+          para.setAttribute("id",unitNameArr[a].name + "_roll" + unitNameArr[a].allShots.toString());
+          var tr = document.getElementById(unitNameArr[a].name + "_div");
+          td.appendChild(para);
+          tr.insertBefore(td, tr.childNodes[3]);
+        } 
         console.log(document.getElementById(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString()));
         document.getElementById(unitNameArr[a].name + "_roll" + (unitNameArr[a].allShots).toString()).innerHTML = output;
           for (i = 0; i < 100; i++) {

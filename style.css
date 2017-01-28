@@ -1,5 +1,13 @@
-#combat_div img {
-  float:left;
+td {
+  text-align:center;
+}
+
+td img {
+  position:center center;
+}
+
+th {
+  font-size:30px;
 }
 
 .checkbox {
@@ -34,5 +42,4 @@ p {
 body {
   height:795px;
   width:1224px;
-  background-position:center;
 }
