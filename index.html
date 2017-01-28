@@ -4,13 +4,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="main.js"></script>
     <title>TI3 War Roller</title>
-    <body id="body">
-      <div>
-        <p><input class="checkbox" type="checkbox" onclick="createCombat()" id="space_battle">Space Battle</input><input class="checkbox" type="checkbox" onclick="createCombat()" id="invasion_combat">Invasion Combat</input></p>
-      </div>
-      <div>
-        <p><input class="checkbox" type="checkbox" onclick="decrementXxcha()" id="xxcha_check">I am in the first round of combat against the Xxcha and all my units have -1</input></p>
-      </div>
+    <body id="body" onload="createCombat()">
       <!--class selection-->
       <div>
         <datalist hidden class="datalist" id="races">
@@ -29,22 +23,23 @@
           <option value="Winnu">(X) Winnu</option>
           <option value="Yin">(X) Yin Brotherhood</option>
         </datalist>
-        <p>Race:<input class="pickrace" id="race" list="races" onchange="updateRace()"><button type="button" onclick="updateRace()">Update</button></input></p>
+        <p id="prace">Race:<input class="pickrace" id="race" list="races" onchange="updateRace()"><button id="button" type="button" onclick="updateRace()">Update</button></input></p>
+        <p class="fixed"><input class="checkbox" type="checkbox" onclick="createCombat()" id="space_battle" checked>Space Battle</input><input class="checkbox" type="checkbox" onclick="createCombat()" id="invasion_combat" checked>Invasion Combat</input></p>
       </div>
-      <table>
+      <div class="offset">
+        <p><input class="checkbox" type="checkbox" onclick="decrementXxcha()" id="xxcha_check">I am in the first round of combat against the Xxcha and all my units have -1</input></p>
+      </div>
+      <table class="offset">
         <thead>
           <tr id="theads">
-            <th>Mods</th>
-            <th>Type</th>
-            <th>Count</th>
           </tr>
         </thead>
-        <tbody id=combat_div>
+        <tbody id="combat_div">
         </tbody>
       </table>
-      <div><button type="button" onclick="roll()">Roll!</button></div>
+      <div><button id="button2" type="button" onclick="roll()">Roll!</button></div>
       <!--links to rules .pdf (both original and rewritten)-->
-      <div><a href="https://images-cdn.fantasyflightgames.com/filer_public/14/68/14684746-8906-4b9c-b060-1dee7f62de47/ti3rules.pdf" target="_blank">Original Rules</a> <br></br><a href="ti3simprules.pdf" target="_blank">Simplified Rules</a></div>
+      <div class="link"><a href="https://images-cdn.fantasyflightgames.com/filer_public/14/68/14684746-8906-4b9c-b060-1dee7f62de47/ti3rules.pdf" target="_blank">Original Rules</a> <br></br><a href="ti3simprules.pdf" target="_blank">Simplified Rules</a></div>
     </body>
   </head>
 </html>

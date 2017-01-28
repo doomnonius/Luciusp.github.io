@@ -37,8 +37,8 @@ function remove() {
   unitNameArr[3].hitsAt = 9;
   unitNameArr[4].hitsAt = 9;
   unitNameArr[5].hitsAt = 7;
-  unitNameArr[6].hitsAt = 9;
-  unitNameArr[7].hitsAt = 5;
+  unitNameArr[6].hitsAt = 5;
+  unitNameArr[7].hitsAt = 9;
   unitNameArr[8].hitsAt = 3;
 }
 
@@ -47,7 +47,7 @@ function noModifiers() {
   para.setAttribute("fontsize","20");
   para.setAttribute("id","para");
   para.innerHTML = "My race does not give any combat modifiers.";
-  body.insertBefore(para, body.childNodes[8]);
+  body.insertBefore(para, body.childNodes[6]);
 }
 
 function updateValue() {
@@ -108,6 +108,27 @@ function createRow(a) {
 }
 
 function createCombat() { //this makes the elements for a space battle appear; practically this is going to involve putting the image links in the unit array
+  if (!(document.getElementById("mods"))) {
+      var thead = document.getElementById("theads");
+      var header = document.createElement("th");
+      header.setAttribute("id","mods");
+      header.innerHTML = "Mods";
+      thead.appendChild(header);
+  }
+  if (!(document.getElementById("type"))) {
+      var thead = document.getElementById("theads");
+      var header = document.createElement("th");
+      header.setAttribute("id","type");
+      header.innerHTML = "Type";
+      thead.appendChild(header);
+  }
+  if (!(document.getElementById("count"))) {
+      var thead = document.getElementById("theads");
+      var header = document.createElement("th");
+      header.setAttribute("id","count");
+      header.innerHTML = "Count";
+      thead.appendChild(header);
+  }
   if (document.getElementById("space_battle").checked) { //create entry boxes for all space units
     for (var a = 2; a < 9; a++) {
       console.log(document.getElementById("space_battle").checked);
@@ -158,11 +179,11 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           check.setAttribute("class","checkbox");
           para.setAttribute("id","para2");
           para.innerHTML = "I spend two trade goods to give my ships +1 or my groundforces +2.";
-          body.insertBefore(para, body.childNodes[8]);
+          body.insertBefore(para, body.childNodes[6]);
           var scr = document.createElement("script");
           scr.innerHTML = (function checkBox() { if (document.getElementById("para")) { if (document.getElementById("para").checked) { for (var a = 0; a < 9; a++) { unitNameArr[a].hitsAt--; console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); } } else { for (var a = 0; a < 9; a++) { unitNameArr[a].hitsAt++; console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); } } } });
           check.appendChild(scr);
-          body.insertBefore(check, body.childNodes[8]);
+          body.insertBefore(check, body.childNodes[6]);
         } else {
           remove();
           var para = document.createElement("p");
@@ -173,11 +194,11 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           check.setAttribute("class","checkbox");
           para.setAttribute("id","para2");
           para.innerHTML = "I spend two trade goods to give my ships +1 or my groundforces +2.";
-          body.insertBefore(para, body.childNodes[8]);
+          body.insertBefore(para, body.childNodes[6]);
           var scr = document.createElement("script");
           scr.innerHTML = (function checkBox() { if (document.getElementById("para")) { if (document.getElementById("para").checked) { for (var a = 2; a < 9; a++) { unitNameArr[a].hitsAt--; console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); } unitNameArr[1].hitsAt = 6; } else { for (var a = 2; a < 9; a++) { unitNameArr[a].hitsAt++; console.log(unitNameArr[a].name + " now hits on " + unitNameArr[a].hitsAt); } unitNameArr[1].hitsAt = 8; } } });
           check.appendChild(scr);
-          body.insertBefore(check, body.childNodes[8]);
+          body.insertBefore(check, body.childNodes[6]);
         }
         break;
       case "Hacan":
@@ -198,24 +219,24 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
         break;
       case "L1Z1X":
         if (!(document.getElementById("para"))) {
-          unitNameArr[7].hitsAt = 4;
+          unitNameArr[5].hitsAt = 4;
           var para = document.createElement("p");
           para.setAttribute("fontsize","20");
           para.setAttribute("id","para");
           para.setAttribute("display","block");
-          para.innerHTML = "My " + unitNameArr[7].name + "s now have +1";
-          body.insertBefore(para, body.childNodes[8]);
+          para.innerHTML = "My " + unitNameArr[5].name + "s now have +1";
+          body.insertBefore(para, body.childNodes[6]);
         } else {
           remove();
-          unitNameArr[7].hitsAt = 4;
+          unitNameArr[5].hitsAt = 4;
           var para = document.createElement("p");
           para.setAttribute("fontsize","20");
           para.setAttribute("id","para");
           para.setAttribute("display","block");
-          para.innerHTML = "My " + unitNameArr[7].name + "s now have +1. <br>";
-          body.insertBefore(para, body.childNodes[8]);
+          para.innerHTML = "My " + unitNameArr[5].name + "s now have +1. <br>";
+          body.insertBefore(para, body.childNodes[6]);
         }
-        console.log(unitNameArr[7].name + "s now hit at " + unitNameArr[7].hitsAt);
+        console.log(unitNameArr[5].name + "s now hit at " + unitNameArr[5].hitsAt);
         if (document.getElementById("invasion_combat").checked) {
           var para = document.createElement("p");
           check = document.createElement("INPUT");
@@ -226,11 +247,11 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           para.setAttribute("id","para3");
           para.setAttribute("display","block");
           para.innerHTML = "My groundforces are invading and therefore get +1.";
-          body.insertBefore(para, body.childNodes[10]);
+          body.insertBefore(para, body.childNodes[8]);
           var scr = document.createElement("script");
           scr.innerHTML = (function checkBox() { if (document.getElementById("para2")) { if (document.getElementById("para2").checked) { unitNameArr[1].hitsAt = 7; console.log(unitNameArr[1].name + " now hits on " + unitNameArr[1].hitsAt); } else { unitNameArr[1].hitsAt = 8; console.log(unitNameArr[1].name + " now hits on " + unitNameArr[1].hitsAt); } } } );
           check.appendChild(scr);
-          body.insertBefore(check, body.childNodes[9]);
+          body.insertBefore(check, body.childNodes[7]);
         }
         break;
       case "Mentak":
@@ -249,7 +270,7 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           para.setAttribute("id","para");
           para.setAttribute("display","block");
           para.innerHTML = "My " + unitNameArr[3].name + "s now have +1";
-          body.insertBefore(para, body.childNodes[8]);
+          body.insertBefore(para, body.childNodes[6]);
         } else {
           remove();
           unitNameArr[3].hitsAt = 8;
@@ -258,7 +279,7 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           para.setAttribute("id","para");
           para.setAttribute("display","block");
           para.innerHTML = "My " + unitNameArr[3].name + "s now have +1";
-          body.insertBefore(para, body.childNodes[8]);
+          body.insertBefore(para, body.childNodes[6]);
         }
         break;
       case "Sardakk":
@@ -272,7 +293,7 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           para.setAttribute("id","para");
           para.setAttribute("display","block");
           para.innerHTML = "All my units now have +1";
-          body.insertBefore(para, body.childNodes[8]);
+          body.insertBefore(para, body.childNodes[6]);
         } else { 
           remove();
           for (var a = 0; a < 9; a++) { 
@@ -284,7 +305,7 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           para.setAttribute("id","para");
           para.setAttribute("display","block");
           para.innerHTML = "All my units now have +1";
-          body.insertBefore(para, body.childNodes[8]);
+          body.insertBefore(para, body.childNodes[6]);
         }
       break;
       case "Jol-Nar":
@@ -298,7 +319,7 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           para.setAttribute("id","para");
           para.setAttribute("display","block");
           para.innerHTML = "All my units now have -1";
-          body.insertBefore(para, body.childNodes[8]);
+          body.insertBefore(para, body.childNodes[6]);
         } else { 
           remove();
           for (var a = 0; a < 9; a++) { 
@@ -310,7 +331,7 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           para.setAttribute("id","para");
           para.setAttribute("display","block");
           para.innerHTML = "All my units now have -1";
-          body.insertBefore(para, body.childNodes[8]);
+          body.insertBefore(para, body.childNodes[6]);
         }
       break;
       case "Xxcha":
@@ -369,7 +390,7 @@ function updateRace() { //let's not make "no race modifiers" the default, rather
           para.setAttribute("id","para");
           para.setAttribute("display","block");
           para.innerHTML = "All units reset";
-          body.insertBefore(para, body.childNodes[8]);
+          body.insertBefore(para, body.childNodes[6]);
         }
         break;
     }

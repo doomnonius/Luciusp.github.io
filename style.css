@@ -1,18 +1,58 @@
-td {
-  text-align:center;
+#button {
+  font-size:0.6em;
+  position: relative;
+  left: 10px;
 }
 
-td img {
-  position:center center;
+p {
+  display:inline;
+  font-size:30px;
+}
+
+td {
+  text-align:center;
 }
 
 th {
   font-size:30px;
 }
 
+#button2 {
+  font-size:3em;
+  width: 120px;
+  position:relative;
+  top:100px;
+}
+
 .checkbox {
   width:25px;
   height:25px;
+  position: ;
+}
+
+.diceRoll {
+  display:inline;
+  margin-left: 20px;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.fixed {
+  position:fixed;
+  top:30px;
+  z-index:1;
+  background-color:#FFF;
+  border-right:600px solid #FFF;
+}
+
+.link {
+  position:relative;
+  top:120px;
+}
+
+.offset {
+  position: relative;
+  top:90px;
 }
 
 .picklist {
@@ -23,23 +63,22 @@ th {
 
 .pickrace {
   width: 220px;
-  font-size: 20px;
+  font-size: 40px;
   margin-left:10px;
 }
 
-.diceRoll {
-  display:inline;
-  margin-left: 20px;
-  font-size: 30px;
-  margin-bottom: 10px;
+#para, #para2, #para3 {
+  position: relative;
+  top:90px;
 }
 
-p {
-  display:inline;
-  font-size:30px;
-}
-
-body {
-  height:795px;
-  width:1224px;
+#prace {
+  font-size: 50px;
+  position:fixed;
+  top:-50px;
+  left:5px;
+  z-index:1;
+  width:100%;
+  background-color:#FFF;
+  border-bottom:5px solid #FFF;
 }
